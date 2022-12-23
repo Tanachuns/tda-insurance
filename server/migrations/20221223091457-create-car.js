@@ -1,53 +1,52 @@
-"use strict";
+'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable('Cars', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull:false
+      },
+      plate_number: {
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique: true,
+      },
+      brand: {
+        type: Sequelize.STRING
+      },
+      model: {
+        type: Sequelize.STRING
+      },
+      year: {
+        type: Sequelize.INTEGER
+      },
+      insurance_id: {
         type: Sequelize.INTEGER,
       },
-      firstname: {
-        type: Sequelize.STRING,
-        allowNull:false
-      },
-      lastname: {
-        type: Sequelize.STRING,
-        allowNull:false
-      },
-      address: {
-        type: Sequelize.STRING,
-      },
-      tel: {
-        type: Sequelize.STRING,
-      },
-      is_admin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull:false
-      },
-      password: {
+      type: {
         type: Sequelize.STRING,
         allowNull:false
       },
       createdAt: {
         allowNull: false,
-        defaultValue: new Date(),
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
       updatedAt: {
         allowNull: false,
-        defaultValue: new Date(),
         type: Sequelize.DATE,
-      },
+        defaultValue: new Date(),
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Users");
-  },
+    await queryInterface.dropTable('Cars');
+  }
 };

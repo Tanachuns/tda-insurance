@@ -10,12 +10,14 @@ module.exports = {
      */ await queryInterface.bulkInsert(
       "Users",
       [
-        {
-          firstname: "test",
-        },
-      ],
-      {}
-    );
+        {firstname:"kwan" ,
+        lastname:"1234",
+        address: "assadasfas",
+        tel:"123456789",
+        is_admin:false,
+        username: "1",
+        password: "1"
+      }],{});
   },
 
   async down(queryInterface, Sequelize) {
