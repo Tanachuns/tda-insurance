@@ -1,27 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import { Route, Routes, Link, Navigate } from "react-router-dom";
+import "./App.css";
+
+import Index from "./components/Index/Index";
+
+import React from "react";
+
 function App() {
-  // useEffect(() => {
-  //   axios.get("http://localhost:3002/").then((res) => {
-  //     console.log(res);
-  //   }, []);
-  // });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p></p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Index />} />
+        </Routes>
+      </main>
+      <footer>
+        <div>
+          <Link to="/">Test Index</Link>
+        </div>
+      </footer>
     </div>
   );
 }
