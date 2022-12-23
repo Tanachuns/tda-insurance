@@ -13,21 +13,15 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Index />} />
-<<<<<<< HEAD
           <Route path="/login" element={<Login />} />
-=======
           <Route path="/car" element={<Car />} />
->>>>>>> 0cb2e114c3ba8f34554545b9489580ec27ecbdec
         </Routes>
       </main>
       <footer>
         <div>
           <Link to="/">Test Index</Link>
-<<<<<<< HEAD
           <Link to="/login">Test Login</Link>
-=======
           <Link to="/car">Test Car</Link>
->>>>>>> 0cb2e114c3ba8f34554545b9489580ec27ecbdec
         </div>
       </footer>
     </div>
