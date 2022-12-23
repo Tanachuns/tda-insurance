@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "Tanachuns",
+    "password": "v2_3xFiG_SB3GcqqGzxsKLNGvheGRiBs",
+    "port":5432,
+    "database": "Tanachuns/tda-db",
+    "host": "db.bit.io",
+    "dialect": "postgres",
+   "ssl":true,
+   "dialectOptions":{
+      "ssl":{
+         "require":true
+      }
+   }
+  }
+    
+}
