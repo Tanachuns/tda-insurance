@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Car.belongsTo(models.User, {foreignKey: "user_id"})
+      Car.belongsTo(models.Package, {foreignKey: "insurance_id"})      
     }
   }
   Car.init({
@@ -20,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     model: DataTypes.STRING,
     year: DataTypes.INTEGER,
     insurance_id: DataTypes.INTEGER,
-    type_id: DataTypes.INTEGER
+    type: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Car',

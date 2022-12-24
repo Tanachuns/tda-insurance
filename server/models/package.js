@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Package.hasMany(models.Car, { foreignKey: "insurance_id" })
     }
   }
   Package.init({
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.INTEGER,
     descript: DataTypes.STRING,
     picture: DataTypes.STRING,
-    type: DataTypes.STRING
+    type: DataTypes.ARRAY(DataTypes.STRING)
   }, {
     sequelize,
     modelName: 'Package',
