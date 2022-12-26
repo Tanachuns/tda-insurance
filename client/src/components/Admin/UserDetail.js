@@ -91,7 +91,12 @@ const UserDetails = () => {
             />
           </td>
           <td>
-            <input type="button" value="delete" />
+            <input
+              type="button"
+              id={user.id}
+              value="delete"
+              onClick={(e) => handleDelete(e)}
+            />
           </td>
         </tr>
       </>
@@ -114,6 +119,15 @@ const UserDetails = () => {
     axios.put(url + "/users/" + data.id, data).then((res) => {
       console.log(res);
       alert("User edited");
+      window.location.reload(false);
+    });
+  };
+
+  const handleDelete = (e) => {
+    axios.delete(url + "/users/" + e.target.id).then((res) => {
+      console.log(res);
+      alert("User deleted");
+      window.location.reload(false);
     });
   };
 
