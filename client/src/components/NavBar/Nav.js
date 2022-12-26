@@ -14,13 +14,10 @@ function Nav() {
         <Bars onClick={() => setShowToggle(!showToggle)}/>
       
         <NavLogo to="/">
-          <img style={{height:"70px"}} src="https://drive.google.com/uc?id=1i9xWWGRy-16YlZgpjGHmQscdz75rR1Zb&authuser=0" />
+          <img style={{height:"70px"}} src="https://drive.google.com/uc?id=1C_LXEXZfAW3s7UwHXST5GZu8iEJX0zAf&authuser=0" />
         </NavLogo>
 
         <NavMenu showToggle={showToggle}>
-            <NavList>
-                <NavLink to="/">Test Index</NavLink>
-            </NavList>
             <NavList>
                 <NavLink to="/admin">Admin</NavLink>
             </NavList>

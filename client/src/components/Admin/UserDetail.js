@@ -16,7 +16,7 @@ const UserDetails = () => {
           id={"user" + user.id}
           onSubmit={(e) => handleEdit(e)}
         ></form>
-        <tr key={id}>
+        <tr>
           <td>
             <input
               type="text"
@@ -143,8 +143,8 @@ const UserDetails = () => {
     };
     axios.post(url + "/users/", data).then((res) => {
       console.log(res);
-      alert("Users Created");
-      window.location.reload(false);
+      alert("User Created");
+      window.location.reload(true);
     });
   };
 
@@ -169,7 +169,7 @@ const UserDetails = () => {
           {usersElement}
           <>
             <form
-              method="PUT"
+              method="POST"
               id="useradd"
               onSubmit={(e) => handleCreate(e)}
             ></form>

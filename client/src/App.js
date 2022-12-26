@@ -14,19 +14,19 @@ import Packages from "./components/Packages/Packages";
 function App() {
   return (
     <div className="App">
-        <header>
-          <Nav />
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/car" element={<Car />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/packages/:id" element={<Packages />} />
-          </Routes>
-        </main>
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/car" element={<Car />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/packages/:id" element={<Packages />} />
+        </Routes>
+      </main>
     </div>
   );
 }
