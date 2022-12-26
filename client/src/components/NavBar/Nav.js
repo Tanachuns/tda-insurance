@@ -19,9 +19,6 @@ function Nav() {
 
         <NavMenu showToggle={showToggle}>
             <NavList>
-                <NavLink to="/">Test Index</NavLink>
-            </NavList>
-            <NavList>
                 <NavLink to="/admin">Admin</NavLink>
             </NavList>
             <NavList>
