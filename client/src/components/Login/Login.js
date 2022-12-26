@@ -10,43 +10,26 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const sentUsername = () => {
+  const handleSubmit = (e) => {
 
-    axios
-    .put(url)
-    .then((res) => {
-      console.log(res.data);
-      setUsername(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    e.preventDefault()
+
   }
-  const sentPassword = () => {
-    axios
-    .put(url)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
-  sentUsername();
-  sentPassword();
+  
 
   return (
     <div>
       <h1>test Login</h1>
       <h2>Log in</h2>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Username" value={username}
-        onChange={(e) => setUsername(e.target.value)}/>
+        onChange={(e) => setUsername(e.target.value)}/> <br/>
         <input type="password" placeholder="Password" value={password}
-        onChange={(e) => setPassword(e.target.value)}/>
-        <button >Login</button>
+        onChange={(e) => setPassword(e.target.value)}/> <br/>
+        <button type="submit">Login</button>
       </form>
+      <Link to="/signup">First time here ? Let's sign up</Link>
 
     </div>
 
