@@ -21,9 +21,11 @@ function Packages() {
     console.log(useParams());
 
   return (
-    <div>
+    <div style={{textTransform: 'uppercase'}}>
       <h1>{packages.name}</h1>
-      
+      <h2>{packages.cost}</h2>
+      <img src=""/>
+      <p>{packages.descript}</p>
     </div>
   )
 }
