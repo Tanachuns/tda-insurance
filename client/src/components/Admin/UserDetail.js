@@ -16,7 +16,7 @@ const UserDetails = () => {
           id={"user" + user.id}
           onSubmit={(e) => handleEdit(e)}
         ></form>
-        <tr key={id}>
+        <tr>
           <td>
             <input
               type="text"
@@ -141,16 +141,11 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios
-      .post(url + "/users", data)
-      .then((res) => {
-        console.log("pls");
-        alert("Users Created");
-        window.location.reload(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.post(url + "/users/", data).then((res) => {
+      console.log(res);
+      alert("User Created");
+      window.location.reload(true);
+    });
   };
 
   return (
