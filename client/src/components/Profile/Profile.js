@@ -6,7 +6,7 @@ const Profile = () => {
   const url = "http://localhost:3002";
   const [profile, setProfile] = useState({});
   useEffect(() => {
-    axios.get(url + "/users/10").then((res) => {
+    axios.get(url + "/users/1").then((res) => {
       setProfile(res.data);
     });
   }, []);

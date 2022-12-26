@@ -201,7 +201,12 @@ const UserCarList = (props) => {
                 <input type="text" form={"caradd"} name="year" />
               </td>
               <td>
-                <input type="text" form={"caradd"} name="insurance_id" />
+                <input
+                  type="text"
+                  form={"caradd"}
+                  name="insurance_id"
+                  disabled
+                />
               </td>
               <td>
                 <input type="text" form={"caradd"} name="type" />
