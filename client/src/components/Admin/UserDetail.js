@@ -130,6 +130,23 @@ const UserDetails = () => {
       window.location.reload(false);
     });
   };
+  const handleCreate = (e) => {
+    e.preventDefault();
+    const data = {
+      firstname: e.target.elements.firstname.value,
+      lastname: e.target.elements.lastname.value,
+      address: e.target.elements.address.value,
+      tel: e.target.elements.tel.value,
+      is_admin: e.target.elements.is_admin.checked,
+      username: e.target.elements.username.value,
+      password: e.target.elements.password.value,
+    };
+    axios.post(url + "/users/", data).then((res) => {
+      console.log(res);
+      alert("Users Created");
+      window.location.reload(false);
+    });
+  };
 
   return (
     <div>
@@ -148,7 +165,44 @@ const UserDetails = () => {
             <th>delete</th>
           </tr>
         </thead>
-        <tbody>{usersElement}</tbody>
+        <tbody>
+          {usersElement}
+          <>
+            <form
+              method="PUT"
+              id="useradd"
+              onSubmit={(e) => handleCreate(e)}
+            ></form>
+            <tr>
+              <td></td>
+              <td>
+                <input type="text" form="useradd" name="firstname" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="lastname" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="address" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="tel" />
+              </td>
+              <td>
+                <input type="checkbox" form="useradd" name="is_admin" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="username" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="password" />
+              </td>
+              <td>
+                <input type="submit" form="useradd" name="edit" value="add" />
+              </td>
+              <td></td>
+            </tr>
+          </>
+        </tbody>
       </table>
     </div>
   );
