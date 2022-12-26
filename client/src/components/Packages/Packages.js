@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { Container } from '../StylesPages/PagesLayout'
 import axios from "axios";
 
 function Packages() {
@@ -21,12 +22,13 @@ function Packages() {
     console.log(useParams());
 
   return (
-    <div style={{textTransform: 'uppercase'}}>
+    <Container>
       <h1>{packages.name}</h1>
       <h2>{packages.cost}</h2>
-      <img src=""/>
+        <img src=""/>
       <p>{packages.descript}</p>
-    </div>
+    </Container>
+    
   )
 }
 

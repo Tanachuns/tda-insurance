@@ -14,7 +14,7 @@ const UserDetails = () => {
         <form
           method="PUT"
           id={"user" + user.id}
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => handleEdit(e)}
         ></form>
         <tr key={id}>
           <td>
@@ -60,10 +60,10 @@ const UserDetails = () => {
           </td>
           <td>
             <input
-              type="text"
+              type="checkbox"
               form={"user" + user.id}
               name="is_admin"
-              defaultValue={user.is_admin}
+              defaultChecked={user.is_admin}
             />
           </td>
           <td>
@@ -91,14 +91,19 @@ const UserDetails = () => {
             />
           </td>
           <td>
-            <input type="button" value="delete" />
+            <input
+              type="button"
+              id={user.id}
+              value="delete"
+              onClick={(e) => handleDelete(e)}
+            />
           </td>
         </tr>
       </>
     );
   });
 
-  const handleSubmit = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
 
     const data = {
@@ -107,11 +112,23 @@ const UserDetails = () => {
       lastname: e.target.elements.lastname.value,
       address: e.target.elements.address.value,
       tel: e.target.elements.tel.value,
-      is_admin: e.target.elements.is_admin.value,
+      is_admin: e.target.elements.is_admin.checked,
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    console.log(data);
+    axios.put(url + "/users/" + data.id, data).then((res) => {
+      console.log(res);
+      alert("User edited");
+      window.location.reload(false);
+    });
+  };
+
+  const handleDelete = (e) => {
+    axios.delete(url + "/users/" + e.target.id).then((res) => {
+      console.log(res);
+      alert("User deleted");
+      window.location.reload(false);
+    });
   };
 
   return (
