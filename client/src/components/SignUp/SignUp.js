@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import axios from "axios"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 // import './CardPackage.css'
 
 const SignUp = props => {
-
+    const navigate = useNavigate();
     const [signUpData, setSignUpData] = useState({})
 
     const handleChange = (e) => {
@@ -20,6 +20,7 @@ const SignUp = props => {
         axios.post("http://localhost:3002/users", signUpData)
         .then(res => {
             console.log(res.data);
+            navigate('/')
         })
     }   
 
@@ -32,8 +33,6 @@ const SignUp = props => {
     address:  <input type="text" name="address" onChange={handleChange}/>
     <br/>
     telephone:  <input type="text" name="tel" onChange={handleChange}/>
-    <br/>
-    admin:  <input type="checkbox" name="is_admin" onChange={handleChange}/>
     <br/>
     username:  <input type="text" name="username" onChange={handleChange}/>
     <br/>
