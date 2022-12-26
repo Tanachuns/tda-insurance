@@ -11,39 +11,45 @@ const UserDetails = () => {
   const usersElement = users.map((user, id) => {
     return (
       <tr key={id}>
-        <td>{user.id}</td>
         <td>
-          <input type="text" defaultValue={user.firstname} />
+          <input type="text" form="edit" defaultValue={user.id} disabled />
         </td>
         <td>
-          <input type="text" defaultValue={user.lastname} />
+          <input type="text" form="edit" defaultValue={user.firstname} />
         </td>
         <td>
-          <input type="text" defaultValue={user.address} />
+          <input type="text" form="edit" defaultValue={user.lastname} />
         </td>
         <td>
-          <input type="text" defaultValue={user.tel} />
+          <input type="text" form="edit" defaultValue={user.address} />
         </td>
         <td>
-          <input type="text" defaultValue={user.is_admin} />
+          <input type="text" form="edit" defaultValue={user.tel} />
         </td>
         <td>
-          <input type="text" defaultValue={user.username} />
+          <input type="text" form="edit" defaultValue={user.is_admin} />
         </td>
         <td>
-          <input type="text" defaultValue={user.password} />
+          <input type="text" form="edit" defaultValue={user.username} />
         </td>
         <td>
-          <input type="submit" value="edit" />
+          <input type="text" form="edit" defaultValue={user.password} />
         </td>
         <td>
-          <input type="submit" value="delete" />
+          <input type="submit" form="edit" value="edit" />
+        </td>
+        <td>
+          <input type="button" value="delete" />
         </td>
       </tr>
     );
   });
+
+  const handleSubmit = (e) => {};
+
   return (
     <div>
+      <form method="PUT" id="edit"></form>
       <table>
         <thead>
           <tr>
