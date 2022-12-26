@@ -5,6 +5,7 @@ import "./App.css";
 import Index from "./components/Index/Index";
 import Login from "./components/Login/Login";
 import React from "react";
+import Admin from "./components/Admin/Admin";
 import Car from "./components/Car/Car";
 import SignUp from "./components/SignUp/SignUp";
 import Packages from "./components/Packages/Packages";
@@ -26,9 +27,9 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/car" element={<Car />} />
-          <Route path="/admin"  />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/packages/:id" element = {<Packages/>} />
+          <Route path="/packages/:id" element={<Packages />} />
         </Routes>
       </main>
     </div>
