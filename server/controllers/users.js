@@ -1,4 +1,5 @@
 const User = require("../models").User; //imported fruits array
+const jwt = require('jsonwebtoken')
 
 //handle index request
 const index = (req, res) => {
@@ -15,6 +16,19 @@ const show = (req, res) => {
 
 const postUser = (req, res) => {
   User.create(req.body).then((newUser) => {
+    const token = jwt.sign(
+      {
+          username: newUser.username,
+          id: newUser.id
+      },
+      "test jwt",
+      {
+          expiresIn: "30 days",
+      }
+  )
+
+  res.cookie("jwt", token)
+  console.log("JWT Token : " + token);
     res.json(newUser);
   });
 };
