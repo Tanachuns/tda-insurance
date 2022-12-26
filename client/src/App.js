@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes, Link, Navigate } from "react-router-dom";
 import "./App.css";
 
-import { Container } from "./components/StylesPages/PagesLayout";
 import Nav from "./components/NavBar/Nav";
 import Index from "./components/Index/Index";
 import Login from "./components/Login/Login";
@@ -17,14 +16,6 @@ function App() {
     <div className="App">
         <header>
           <Nav />
-          
-          {/* <div>
-            <Link to="/">Test Index</Link>
-            <Link to="/admin">--ADmin--</Link>
-            <Link to="/signup">--SignUp--</Link>
-            <Link to="/login">Test Login</Link>
-            <Link to="/car">Test Car</Link>
-          </div> */}
         </header>
         <main>
           <Routes>
