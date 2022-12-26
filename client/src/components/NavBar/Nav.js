@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavBar, NavLogo, NavMenu, NavList, NavLink , Bars} from './NavBarStyles';
+import { NavBar, NavLogo, NavMenu, NavList, NavLink , Bars} from '../StylesPages/NavBar/NavBarStyles';
 
 function Nav() {
 
