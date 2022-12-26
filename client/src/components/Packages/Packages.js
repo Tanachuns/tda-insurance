@@ -1,33 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 
-function packages() {
+function Packages() {
   const [packages, setPackages] = useState([]);
-  const url = "http://localhost:3002/packages";
-  
-  state = {
-    packages: []
-  }
-
-  axios.get(url)
-  .then(res => {
-    const packages = res.data;
-    this.setState({ packages });
-  })
+    const { id } = useParams();
+    const url = ("http://localhost:3002/packages/" + id)
+    
+    // fetch api
+    async function getPackages() {
+      axios.get(url)
+        .then (res => {setPackages(res.data)})
+      
+        .catch (err => console.log(err))
+    }
+    useEffect (()=> {
+      getPackages();
+    },[])
+    
+    console.log(useParams());
 
   return (
     <div>
-      <h1>Insurance Packages</h1>
-      <ul>
-        {
-          this.state.packages
-            .map(packages =>
-              <li key={packages.id}>{packages.name}</li>
-            )
-        }
-      </ul>
+      <h1>{packages.name}</h1>
+      
     </div>
   )
 }
 
-export default packages
+export default Packages
