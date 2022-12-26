@@ -6,6 +6,7 @@ import Index from "./components/Index/Index";
 import Login from "./components/Login/Login";
 import React from "react";
 import Car from "./components/Car/Car";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/car" element={<Car />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <footer>
@@ -22,6 +24,7 @@ function App() {
           <Link to="/">Test Index</Link>
           <Link to="/login">Test Login</Link>
           <Link to="/car">Test Car</Link>
+          <Link to="/admin">admin</Link>
         </div>
       </footer>
     </div>
