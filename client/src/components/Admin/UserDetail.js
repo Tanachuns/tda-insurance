@@ -141,11 +141,16 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios.post(url + "/users/", data).then((res) => {
-      console.log(res);
-      alert("Users Created");
-      window.location.reload(false);
-    });
+    axios
+      .post(url + "/users", data)
+      .then((res) => {
+        console.log("pls");
+        alert("Users Created");
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -169,7 +174,7 @@ const UserDetails = () => {
           {usersElement}
           <>
             <form
-              method="PUT"
+              method="POST"
               id="useradd"
               onSubmit={(e) => handleCreate(e)}
             ></form>
