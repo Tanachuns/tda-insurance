@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import React from "react";
 import Car from "./components/Car/Car";
 import SignUp from "./components/SignUp/SignUp";
+import Packages from "./components/Packages/Packages";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/car" element={<Car />} />
           <Route path="/admin"  />
           <Route path="/signup" element={<SignUp />} />
+          <Routes path="/packages/1" element = {<Packages/>} />
         </Routes>
       </main>
     </div>
