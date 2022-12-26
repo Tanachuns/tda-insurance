@@ -18,13 +18,10 @@ export const NavBar = styled.nav `
 export const NavLogo = styled(Link) `
     display: flex;
     align-items: center;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
+    justify-content: center;
+    padding-bottom: 5px;
     @media screen and (max-width: 768px) {
         padding-left: 20px;
-        // position: absolute;
      }
 `
 
