@@ -10,46 +10,112 @@ const UserDetails = () => {
   }, []);
   const usersElement = users.map((user, id) => {
     return (
-      <tr key={id}>
-        <td>
-          <input type="text" form="edit" defaultValue={user.id} disabled />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.firstname} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.lastname} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.address} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.tel} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.is_admin} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.username} />
-        </td>
-        <td>
-          <input type="text" form="edit" defaultValue={user.password} />
-        </td>
-        <td>
-          <input type="submit" form="edit" value="edit" />
-        </td>
-        <td>
-          <input type="button" value="delete" />
-        </td>
-      </tr>
+      <>
+        <form
+          method="PUT"
+          id={"user" + user.id}
+          onSubmit={(e) => handleSubmit(e)}
+        ></form>
+        <tr key={id}>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="id"
+              defaultValue={user.id}
+              disabled
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="firstname"
+              defaultValue={user.firstname}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="lastname"
+              defaultValue={user.lastname}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="address"
+              defaultValue={user.address}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="tel"
+              defaultValue={user.tel}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="is_admin"
+              defaultValue={user.is_admin}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="username"
+              defaultValue={user.username}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"user" + user.id}
+              name="password"
+              defaultValue={user.password}
+            />
+          </td>
+          <td>
+            <input
+              type="submit"
+              form={"user" + user.id}
+              name="edit"
+              value="edit"
+            />
+          </td>
+          <td>
+            <input type="button" value="delete" />
+          </td>
+        </tr>
+      </>
     );
   });
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {
+      id: e.target.elements.id.value,
+      firstname: e.target.elements.firstname.value,
+      lastname: e.target.elements.lastname.value,
+      address: e.target.elements.address.value,
+      tel: e.target.elements.tel.value,
+      is_admin: e.target.elements.is_admin.value,
+      username: e.target.elements.username.value,
+      password: e.target.elements.password.value,
+    };
+    console.log(data);
+  };
 
   return (
     <div>
-      <form method="PUT" id="edit"></form>
       <table>
         <thead>
           <tr>
