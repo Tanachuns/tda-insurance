@@ -27,9 +27,9 @@ const postUser = (req, res) => {
       }
   )
 
-  res.cookie("jwt", token)
+  res.send({"jwt": token})
   console.log("JWT Token : " + token);
-    res.json(newUser);
+    // res.json(newUser);
   });
 };
 

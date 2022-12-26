@@ -19,8 +19,10 @@ const SignUp = props => {
 
         axios.post("http://localhost:3002/users", signUpData)
         .then(res => {
-            console.log(res.data);
+            let token = res.data
+            console.log(token);
             navigate('/')
+            localStorage.setItem("jwt", token)
         })
     }   
 
