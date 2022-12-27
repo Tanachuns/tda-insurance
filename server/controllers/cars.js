@@ -8,6 +8,15 @@ const index = (req, res) => {
     res.json(cars);
   });
 };
+const showMyCar = (req, res) => {
+  Car.findAll({
+    where: {
+      user_id: req.params.index
+    }
+  }).then((cars) => {
+    res.json(cars);
+  });
+};
 
 const show = (req, res) => {
   Car.findByPk(req.params.index, {
@@ -40,6 +49,7 @@ const editCar = (req, res) => {
 
 module.exports = {
   index,
+  showMyCar,
   show,
   postCar,
   removeCar,
