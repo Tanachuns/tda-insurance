@@ -1,18 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
-
+import jwt_decode from "jwt-decode";
 const Profile = () => {
   const url = "http://localhost:3002";
   const [profile, setProfile] = useState({});
+  var decoded = jwt_decode(localStorage.getItem("jwt"));
+  console.log(decoded);
   useEffect(() => {
-    axios
-      .get(url + "/users/", {
-        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
-      })
-      .then((res) => {
-        setProfile(res.data);
-      });
+    axios.get(url + "/users/" + decoded.id, {}).then((res) => {
+      console.log(res.data);
+      setProfile(res.data);
+    });
   }, []);
   const handleEdit = (e) => {
     e.preventDefault();

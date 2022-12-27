@@ -9,7 +9,6 @@ const CarsDetails = () => {
     });
   }, []);
 
-  const hadleSearch = (e) => {};
   const carsElement = cars.map((car, id) => {
     return (
       <>
