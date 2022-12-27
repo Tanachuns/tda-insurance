@@ -7,6 +7,7 @@ function Packages() {
   const [packages, setPackages] = useState([]);
     const { id } = useParams();
     const url = ("http://localhost:3002/packages/" + id)
+    let cost = new Intl.NumberFormat().format(packages.cost)
     
     // fetch api
     async function getPackages() {
@@ -24,7 +25,7 @@ function Packages() {
   return (
     <Container>
       <h1>{packages.name}</h1>
-      <h2>{packages.cost}</h2>
+      <h2>{cost}</h2>
         <img src=""/>
       <p>{packages.descript}</p>
     </Container>
