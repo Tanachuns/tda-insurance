@@ -57,10 +57,13 @@ const login = (req, res) => {
                 }
             }
         })
-    
 }
 
+// const logout = (req, res) => {
+//     res.json({"jwt": null})
+// }
 module.exports = {
     signup,
-    login
+    login,
+    // logout  
 }
