@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 // import './CardPackage.css'
 
 const SignUp = (props) => {
@@ -17,9 +18,11 @@ const SignUp = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3002/users", signUpData).then((res) => {
+    axios.post("http://localhost:3002/auth/signup", signUpData).then((res) => {
       let token = res.data.jwt;
-      console.log(res);
+      console.log("jwt : " + token);
+      let decode = jwt_decode(token);
+      console.log(decode);
       navigate("/");
       localStorage.setItem("jwt", token);
       // document.cookies.set("jwt",token)

@@ -4,7 +4,9 @@ const UserDetails = () => {
   const url = "http://localhost:3002";
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    axios.get(url + "/users").then((res) => {
+    axios.get(url + "/users", {
+      headers: {Authorization: `Bearer ${localStorage.getItem("jwt")}`}
+    }).then((res) => {
       setUsers(res.data);
     });
   }, []);
