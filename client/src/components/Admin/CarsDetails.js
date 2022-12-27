@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const CarsDetails = () => {
   const url = "http://localhost:3002";
   const [cars, setCars] = useState([]);
@@ -9,7 +10,6 @@ const CarsDetails = () => {
     });
   }, []);
 
-  const hadleSearch = (e) => {};
   const carsElement = cars.map((car, id) => {
     return (
       <>

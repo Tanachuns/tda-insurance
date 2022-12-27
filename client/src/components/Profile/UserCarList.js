@@ -36,6 +36,7 @@ const UserCarList = (props) => {
                 form={"car" + car.id}
                 name="user_id"
                 defaultValue={car.user_id}
+                disabled
               />
             </td>
             <td>
