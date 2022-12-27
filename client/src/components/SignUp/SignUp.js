@@ -90,9 +90,9 @@ const SignUp = (props) => {
               required
             />
             <br />
-          </ContainInput>
-          <LoginBtn type="submit">Sign-up</LoginBtn>
-        </form>
+            <LoginBtn type="submit">Sign-up</LoginBtn>
+          </form>
+        </ContainInput>
 
       </BackdropBox2>
     </BackgroundImg2>
