@@ -27,35 +27,68 @@ const SignUp = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3002/auth/signup", signUpData).then((res) => {
-      let token = res.data.jwt;
-      navigate("/");
-      localStorage.setItem("jwt", token);
-      // document.cookies.set("jwt",token)
-    });
+    axios
+      .post("http://localhost:3002/auth/signup", signUpData)
+      .then((res) => {
+        let token = res.data.jwt;
+        navigate("/");
+        localStorage.setItem("jwt", token);
+        // document.cookies.set("jwt",token)
+      })
+      .catch((err) => {
+        if (err.response.status === 409) {
+          alert("username already exists");
+        } else {
+          console.log(err);
+        }
+      });
   };
 
   return (
     <BackgroundImg2>
       <BackdropBox2>
         <Header2>Registration form</Header2>
-
-        <form onSubmit={handleSubmit}>
-          <ContainInput>
-            Firstname:{" "}
-            <InputBtn type="text" name="firstname" onChange={handleChange} />
-            Lastname:{" "}
-            <InputBtn type="text" name="lastname" onChange={handleChange} />
+        <ContainInput>
+          <form onSubmit={handleSubmit}>
+            firstname:{" "}
+            <InputBtn
+              type="text"
+              name="firstname"
+              onChange={handleChange}
+              required
+            />
+            lastname:{" "}
+            <InputBtn
+              type="text"
+              name="lastname"
+              onChange={handleChange}
+              required
+            />
             <br />
-            Address:{" "}
-            <InputBtn type="text" name="address" onChange={handleChange} />
-            Telephone:{" "}
-            <InputBtn type="text" name="tel" onChange={handleChange} />
+            address:{" "}
+            <InputBtn
+              type="text"
+              name="address"
+              onChange={handleChange}
+              required
+            />
+            telephone:{" "}
+            <InputBtn type="text" name="tel" onChange={handleChange} required />
             <br />
-            Username:{" "}
-            <InputBtn type="text" name="username" onChange={handleChange} />
-            Password:{" "}
-            <InputBtn type="text" name="password" onChange={handleChange} />
+            username:{" "}
+            <InputBtn
+              type="text"
+              name="username"
+              onChange={handleChange}
+              required
+            />
+            password:{" "}
+            <InputBtn
+              type="text"
+              name="password"
+              onChange={handleChange}
+              required
+            />
             <br />
           </ContainInput>
           <LoginBtn type="submit">Sign-up</LoginBtn>
