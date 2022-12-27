@@ -11,11 +11,12 @@ const Admin = () => {
   };
 
   const decoded = jwt_decode(localStorage.getItem("jwt"));
+  console.log(decoded);
   if (decoded.is_admin) {
     return (
       <div>
         <header>
-          <h1>Admin</h1>
+          <h1>Admin {decoded.username}</h1>
           <button
             onClick={() => {
               handlePage(<UserDetails />);

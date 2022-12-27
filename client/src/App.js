@@ -25,6 +25,7 @@ function App() {
           <Route path="/car" element={<Car />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/packages/:id" element={<Packages />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
