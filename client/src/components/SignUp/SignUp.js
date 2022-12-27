@@ -17,6 +17,7 @@ const SignUp = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
     axios.post("http://localhost:3002/users", signUpData).then((res) => {
       let token = res.data.jwt;
       console.log(res);
@@ -25,6 +26,7 @@ const SignUp = (props) => {
       // document.cookies.set("jwt",token)
     });
   };
+
 
   return (
     <form onSubmit={handleSubmit}>

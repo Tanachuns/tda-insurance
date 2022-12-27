@@ -14,6 +14,27 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
+const verifyToken = (req, res, next) => {
+  // let token = req.cookies.jwt
+  const bearerHeader = req.headers['authorization']
+  if (typeof bearerHeader !== 'undefined') {
+      const bearer = bearerHeader.split(' ')
+      const bearerToken = bearer[1]
+      req.token = bearerToken
+  }
+
+  console.log(req.token);
+
+  jwt.verify(req.token,"test_jwt", (err, decodedUser) => {
+      if (err || !decodedUser) return res.status(401).json({error: "Unauthorized Request"})
+
+      req.user = decodedUser
+      console.log(decodedUser);
+
+      next();
+  })
+}
+app.use("/auth", routes.auth);
 app.use("/cars", routes.cars);
 app.use("/packages", routes.packages);
 app.use("/users", routes.users);
