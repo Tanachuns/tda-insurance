@@ -37,15 +37,23 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(url + "auth/login", loginData).then((res) => {
+    axios.post(url + "auth/login", loginData)
+    .then((res) => {
       let token = res.data.jwt;
-
       let decode = jwt_decode(token);
       console.log("decode jwt " + decode.username);
       navigate("/");
       window.location.reload();
       localStorage.setItem("jwt", token);
-    });
+    })
+    .catch( err =>{
+      
+      if(err.response.status === 400){
+        alert("Wrong Password")
+      }else if(err.response.status === 404){
+        alert("Wrong Username")
+      }
+    })
   };
 
   return (
