@@ -4,12 +4,14 @@ const UserDetails = () => {
   const url = "http://localhost:3002";
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    axios.get(url + "/users", {
-      headers: {Authorization: `Bearer ${localStorage.getItem("jwt")}`}
-    }).then((res) => {
-      console.log(res);
-      setUsers(res.data);
-    });
+    axios
+      .get(url + "/users", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        console.log(res);
+        setUsers(res.data);
+      });
   }, []);
   const usersElement = users.map((user, id) => {
     return (
@@ -119,19 +121,30 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios.put(url + "/users/" + data.id, data).then((res) => {
-      console.log(res);
-      alert("User edited");
-      window.location.reload(false);
-    });
+    axios
+      .put(url + "/users/" + data.id, data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        console.log(res);
+        alert("User edited");
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   const handleDelete = (e) => {
-    axios.delete(url + "/users/" + e.target.id).then((res) => {
-      console.log(res);
-      alert("User deleted");
-      window.location.reload(false);
-    });
+    axios
+      .delete(url + "/users/" + e.target.id, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        console.log(res);
+        alert("User deleted");
+        window.location.reload(false);
+      });
   };
   const handleCreate = (e) => {
     e.preventDefault();
