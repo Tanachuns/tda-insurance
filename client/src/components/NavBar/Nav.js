@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 import {
   NavBar,
@@ -11,9 +12,11 @@ import {
 } from "../StylesPages/NavBarStyles";
 
 function Nav() {
+  const navigate = useNavigate();
   const [showToggle, setShowToggle] = useState(false);
   const handleLogOut = (e) => {
     localStorage.removeItem("jwt");
+    navigate("/");
     window.location.reload();
   };
 
