@@ -11,7 +11,7 @@ import {
 function Nav() {
   const [showToggle, setShowToggle] = useState(false);
   const handleLogOut = (e) =>{
-    localStorage.setItem("jwt", null);
+    localStorage.removeItem("jwt")
   }
   return (
     // Use React Fragment
@@ -33,13 +33,18 @@ function Nav() {
           </NavList>
           <NavList>
             <NavLink to="/signup">Sign Up</NavLink>
-          </NavList>
-          <NavList>
-            <NavLink to="/login">Login</NavLink>
-          </NavList>
+            </NavList>
+          
           <NavList>
             <NavLink onClick={handleLogOut}>Log Out</NavLink>
           </NavList>
+       
+         
+          <NavList>
+          <NavLink to="/login">Login</NavLink>
+        </NavList>
+          
+           
           <NavList>
             <NavLink to="/profile">Profile</NavLink>
           </NavList>
