@@ -7,6 +7,7 @@ const UserDetails = () => {
     axios.get(url + "/users", {
       headers: {Authorization: `Bearer ${localStorage.getItem("jwt")}`}
     }).then((res) => {
+      console.log(res);
       setUsers(res.data);
     });
   }, []);

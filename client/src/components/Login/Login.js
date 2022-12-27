@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useNavigate} from 'react-router-dom'
 import axios from "axios";
+import jwt_decode from "jwt-decode"
 import {
   BrowserRouter,
   Routes,
@@ -40,6 +41,9 @@ const Login = () => {
       axios.post(url +"auth/login", loginData)
       .then(res => {
         let token = res.data.jwt;
+     
+      let decode = jwt_decode(token)
+      console.log("decode jwt " + decode.username);
         navigate("/");
         localStorage.setItem("jwt", token);
       
