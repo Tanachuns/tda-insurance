@@ -29,35 +29,40 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
-  User.findOne({
-    where: {
-      username: req.body.username,
-    },
-  }).then((foundUser) => {
-    if (foundUser) {
-      if (req.body.password === foundUser.password) {
-        const token = jwt.sign(
-          {
-            username: foundUser.username,
-            id: foundUser.id,
-            is_admin: foundUser.is_admin,
-          },
-          "test_jwt",
-          {
-            expiresIn: "30 days",
-          }
-        );
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(foundUser => {
+        if (foundUser) {
+                if (req.body.password ===  foundUser.password) {
+                    const token = jwt.sign(
+                        {
+                            username: foundUser.username,
+                            id: foundUser.id,
+                            is_admin:foundUser.is_admin
+                        },
+                        "test_jwt",
+                        {
+                            expiresIn: "30 days",
+                        }
+                    )
+    
+                    res.cookie("jwt", token)
+                res.json({"jwt": token})
+                } else {
+                    return res.sendStatus(400)
+                }
+            }
+        })
+}
 
-        res.cookie("jwt", token);
-        res.json({ jwt: token });
-      } else {
-        return res.sendStatus(400);
-      }
-    }
-  });
-};
-
+// const logout = (req, res) => {
+//     res.json({"jwt": null})
+// }
 module.exports = {
-  signup,
-  login,
-};
+    signup,
+    login,
+    // logout  
+}

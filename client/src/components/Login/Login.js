@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useNavigate} from 'react-router-dom'
 import axios from "axios";
+import jwt_decode from "jwt-decode"
 import {
   BrowserRouter,
   Routes,
@@ -12,8 +13,8 @@ import {
   Header,
   InputBtn,
   LoginBtn,
-  BackdropBox,
-  BackgroundImg
+  BackdropBox1,
+  BackgroundImg1
 } from "../StylesPages/LoginStyles";
 
 const NormalText = {
@@ -40,6 +41,9 @@ const Login = () => {
       axios.post(url +"auth/login", loginData)
       .then(res => {
         let token = res.data.jwt;
+     
+      let decode = jwt_decode(token)
+      console.log("decode jwt " + decode.username);
         navigate("/");
         localStorage.setItem("jwt", token);
       
@@ -49,8 +53,8 @@ const Login = () => {
 
   return (
 
-    <BackgroundImg>
-      <BackdropBox>
+    <BackgroundImg1>
+      <BackdropBox1>
 
         <Header>Welcome Back !</Header>
 
@@ -77,8 +81,8 @@ const Login = () => {
         <Link to="/signup" style={NormalText}>First time here ? Let's sign up</Link>
         
 
-      </BackdropBox>
-    </BackgroundImg>
+      </BackdropBox1>
+    </BackgroundImg1>
 
   );
 };

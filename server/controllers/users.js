@@ -1,12 +1,19 @@
 const User = require("../models").User; //imported fruits array
 const jwt = require("jsonwebtoken");
-
+const jwt_decode =require( "jwt-decode")
 //handle index request
 const index = (req, res) => {
-  User.findAll().then((users) => {
-    res.json(users);
-  });
-};
+  const token = req.headers['authorization'].split(' ')[1]
+  req.token = jwt_decode(token)
+  if(req.token.is_admin){
+    User.findAll().then((users) => {
+      res.json(users);
+    });
+  }else {
+    res.send("ADMIN : NOT PERMISSION ")
+  }
+
+}
 
 const show = (req, res) => {
   User.findByPk(req.params.index).then((user) => {
