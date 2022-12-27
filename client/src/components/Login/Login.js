@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
+import { useNavigate} from 'react-router-dom'
 import axios from "axios";
 import {
   BrowserRouter,
@@ -20,21 +21,31 @@ const NormalText = {
   paddingBottom: "10px" 
 }
 /* eslint-disable react-hooks/exhaustive-deps */
-const url = "http://localhost:3002/auth";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("")
-      .then((res) => { })
-      .catch((err) => {
-        console.log(err);
-      });
+  
+  const url = "http://localhost:3002/";
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState("");
+  
+  const handleChange = (e) => {
+    setLoginData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
+
+  const handleSubmit = e => {
+      e.preventDefault()
+      axios.post(url +"auth/login", loginData)
+      .then(res => {
+        let token = res.data.jwt;
+        navigate("/");
+        localStorage.setItem("jwt", token);
+      
+      })
+   
+  }
 
   return (
 
@@ -47,15 +58,17 @@ const Login = () => {
           <InputBtn
             type="text"
             placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="username"
+            // value={username}
+            onChange={handleChange}
           />{" "}
           <br />
           <InputBtn
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            // value={password}
+            onChange={handleChange}
           />{" "}
           <br />
           <LoginBtn type="submit">Login</LoginBtn>

@@ -24,7 +24,7 @@ const signup = (req, res) => {
             })
             .catch(err => {
                 console.log(err);
-                res.send(`error ${err}`)
+                // res.send(`error ${err}`)
             })
 
 }
@@ -40,9 +40,9 @@ const login = (req, res) => {
                 if (req.body.password ===  foundUser.password) {
                     const token = jwt.sign(
                         {
-                            username: newUser.username,
-                            id: newUser.id,
-                            is_admin:newUser.is_admin
+                            username: foundUser.username,
+                            id: foundUser.id,
+                            is_admin:foundUser.is_admin
                         },
                         "test_jwt",
                         {

@@ -4,6 +4,7 @@ const app = express();
 const routes = require("./routes");
 const bodyParser = require("body-parser").json(); // for api req.body as json
 const cookieParser = require("cookie-parser")
+const jwt = require('jsonwebtoken')
 
 app.use(cors());
 app.use(bodyParser);
@@ -37,7 +38,7 @@ const verifyToken = (req, res, next) => {
 app.use("/auth", routes.auth);
 app.use("/cars", routes.cars);
 app.use("/packages", routes.packages);
-app.use("/users", routes.users);
+app.use("/users",verifyToken, routes.users);
 
 app.listen(3002, () => {
   console.log(`Listening on port ${3002}`);
