@@ -13,14 +13,15 @@ const CardPackage = props => {
             <CardHeader>
                 <StyledImage src={props.detail.picture}/>
             </CardHeader>
-            <CardBody>
+            
                 <Link to={`/packages/${props.detail.id}`}>
                 
-                    <h2>Package :{props.detail.name}</h2>
-                    <h2>Cost :{props.detail.cost}</h2>
+                    <h2>{props.detail.name}</h2>
+                    <h2>{props.detail.cost}</h2>
+                    <p>{props.detail.descript}</p>
     
                 </Link>
-            </CardBody>
+           
             
         </StyledBox>
     )    

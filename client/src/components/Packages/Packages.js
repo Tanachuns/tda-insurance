@@ -12,6 +12,7 @@ function Packages() {
   const url = "http://localhost:3002/packages/" + id;
   const decoded = jwt_decode(localStorage.getItem("jwt"));
   console.log(decoded.id);
+  let cost = new Intl.NumberFormat().format(packages.cost)
   // fetch api
   async function getPackages() {
     axios
@@ -69,8 +70,9 @@ function Packages() {
   return (
     <Container>
       <h1>{packages.name}</h1>
-      <h2>{packages.cost}</h2>
-      <img src="" />
+      <h2>{cost}</h2>
+        <img src=""/>
+      
       <p>{packages.descript}</p>
       <form onSubmit={handleBuy}>
         Choose a car:

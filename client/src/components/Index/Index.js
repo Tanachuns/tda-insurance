@@ -21,7 +21,7 @@ const Index = (props) => {
  
   return (
   <Container>
-    <h1>Package List</h1>
+    <h1>Car Insurance Packages</h1>
       <Flexarea>
         {packages}
       </Flexarea>
