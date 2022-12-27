@@ -2,10 +2,18 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-
+export const BackgroundImg = styled.div`
+    background-image: url(https://images.unsplash.com/photo-1498084393753-b411b2d26b34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -10;
+`
 export const Header = styled.h2 `
-    margin-top: 105px
-    
+    color: white;
+    margin-top: 0;
+    padding-top: 28px;
+    z-index: 10;
 `
 export const InputBtn = styled.input `
     border: none;
@@ -15,6 +23,7 @@ export const InputBtn = styled.input `
     height: 25px;
     width: 200px;
     margin-bottom: 8px;
+    z-index: 10;
 `
 export const LoginBtn = styled.button `
     border: none;
@@ -26,7 +35,19 @@ export const LoginBtn = styled.button `
     background: #3A0CD2;
     color: white;
     cursor: pointer;
+    z-index: 10;
 `
 export const NormalText = styled.p`
-    color: black;
+    color: white;
+`
+export const BackdropBox = styled.div`
+    position: relative;
+    top: 130px;
+    max-height: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 50px;
+    backdrop-filter: blur(17px);
+    z-index: 1;
+
 `
