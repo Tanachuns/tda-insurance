@@ -1,8 +1,7 @@
-import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-export const BackgroundImg = styled.div`
+export const BackgroundImg1 = styled.div`
     background-image: url(https://images.unsplash.com/photo-1498084393753-b411b2d26b34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
     height: 100vh;
     background-size: cover;
@@ -40,10 +39,10 @@ export const LoginBtn = styled.button `
 export const NormalText = styled.p`
     color: white;
 `
-export const BackdropBox = styled.div`
+export const BackdropBox1 = styled.div`
     position: relative;
     top: 130px;
-    max-height: 300px;
+    height: 290px;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 50px;

@@ -11,8 +11,8 @@ import {
   Header,
   InputBtn,
   LoginBtn,
-  BackdropBox,
-  BackgroundImg
+  BackdropBox1,
+  BackgroundImg1
 } from "../StylesPages/LoginStyles";
 
 const NormalText = {
@@ -38,8 +38,8 @@ const Login = () => {
 
   return (
 
-    <BackgroundImg>
-      <BackdropBox>
+    <BackgroundImg1>
+      <BackdropBox1>
 
         <Header>Welcome Back !</Header>
 
@@ -64,8 +64,8 @@ const Login = () => {
         <Link to="/signup" style={NormalText}>First time here ? Let's sign up</Link>
         
 
-      </BackdropBox>
-    </BackgroundImg>
+      </BackdropBox1>
+    </BackgroundImg1>
 
   );
 };
