@@ -27,14 +27,8 @@ function Packages() {
       .get("http://localhost:3002/cars/mycar/" + decoded.id)
       .then((res) => {
         console.log(res.data);
-        const carlist = res.data.map((item) => {
-          return (
-            <option value={`${item.id}`}>
-              id : {item.plate_number} brand : {item.brand}
-            </option>
-          );
-        });
-        setCars(carlist);
+
+        setCars(res.data);
       })
 
       .catch((err) => console.log(err));
@@ -60,6 +54,18 @@ function Packages() {
 
       .catch((err) => console.log(err));
   };
+
+  const carlist = cars
+    .filter((item) => {
+      return packages.type.includes(item.type);
+    })
+    .map((item) => {
+      return (
+        <option value={`${item.id}`}>
+          id : {item.plate_number} brand : {item.brand}
+        </option>
+      );
+    });
   return (
     <Container>
       <h1>{packages.name}</h1>
@@ -69,7 +75,7 @@ function Packages() {
       <form onSubmit={handleBuy}>
         Choose a car:
         <select name="cars" id="cars">
-          {cars}
+          {carlist}
         </select>
         <input type="submit" value="BUY" />
       </form>
