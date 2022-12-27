@@ -30,11 +30,15 @@ const Profile = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios.put(url + "/users/" + data.id, data).then((res) => {
-      console.log(res);
-      alert("User edited");
-      window.location.reload(false);
-    });
+    axios
+      .put(url + "/users/" + data.id, data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        console.log(res);
+        alert("User edited");
+        window.location.reload(false);
+      });
   };
   return (
     <div>
