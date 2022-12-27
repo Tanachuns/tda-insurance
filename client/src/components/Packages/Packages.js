@@ -19,29 +19,26 @@ function Packages() {
       .then((res) => {
         setPackages(res.data);
       })
-      .then(() => {
-        axios
-          .get("http://localhost:3002/cars/mycar/" + decoded.id)
-          .then((res) => {
-            console.log(res.data);
-            const carlist = res.data
-              .filter((item) => {
-                return packages.type.includes(item.type);
-              })
-              .map((item) => {
-                return (
-                  <option value={`${item.id}`}>
-                    id : {item.plate_number} brand : {item.brand}
-                  </option>
-                );
-              });
-            setCars(carlist);
-          })
-          .catch((err) => console.log(err));
-      })
+
       .catch((err) => console.log(err));
   }
-  const myCarList = () => {};
+  const myCarList = () => {
+    axios
+      .get("http://localhost:3002/cars/mycar/" + decoded.id)
+      .then((res) => {
+        console.log(res.data);
+        const carlist = res.data.map((item) => {
+          return (
+            <option value={`${item.id}`}>
+              id : {item.plate_number} brand : {item.brand}
+            </option>
+          );
+        });
+        setCars(carlist);
+      })
+
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     getPackages();
     myCarList();
