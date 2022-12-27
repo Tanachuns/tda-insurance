@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
+=======
+import jwt_decode from "jwt-decode";
+>>>>>>> 96a3c28a3348e63ea34deee08bcce8afe1d40c73
 // import './CardPackage.css'
 
 const SignUp = (props) => {
@@ -20,16 +24,13 @@ const SignUp = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
-    axios.post("http://localhost:3002/users", signUpData).then((res) => {
+    axios.post("http://localhost:3002/auth/signup", signUpData).then((res) => {
       let token = res.data.jwt;
-      console.log(res);
       navigate("/");
       localStorage.setItem("jwt", token);
       // document.cookies.set("jwt",token)
     });
   };
-
 
   return (
     <BackgroundImg2>

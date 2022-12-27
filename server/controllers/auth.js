@@ -1,33 +1,32 @@
-const User = require('../models').User
+const User = require("../models").User;
 // const bcrypt = require('bcryptjs')
 // require('dotenv').config()
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 const signup = (req, res) => {
-            User.create(req.body)
-            .then(newUser => {
-                const token = jwt.sign(
-                    {
-                        username: newUser.username,
-                        id: newUser.id,
-                        is_admin:newUser.is_admin
-                    },
-                    "test_jwt",
-                    {
-                        expiresIn: "30 days",
-                    }
-                )
+  User.create(req.body)
+    .then((newUser) => {
+      const token = jwt.sign(
+        {
+          username: newUser.username,
+          id: newUser.id,
+          is_admin: newUser.is_admin,
+        },
+        "test_jwt",
+        {
+          expiresIn: "30 days",
+        }
+      );
 
-                res.cookie("jwt", token)
-                res.json({"jwt": token})
-                // res.redirect(`/users/profile/${newUser.id}`);
-            })
-            .catch(err => {
-                console.log(err);
-                res.send(`error ${err}`)
-            })
-
-}
+      res.cookie("jwt", token);
+      res.json({ jwt: token });
+      // res.redirect(`/users/profile/${newUser.id}`);
+    })
+    .catch((err) => {
+      console.log(err);
+      // res.send(`error ${err}`)
+    });
+};
 
 const login = (req, res) => {
     User.findOne({
@@ -40,9 +39,9 @@ const login = (req, res) => {
                 if (req.body.password ===  foundUser.password) {
                     const token = jwt.sign(
                         {
-                            username: newUser.username,
-                            id: newUser.id,
-                            is_admin:newUser.is_admin
+                            username: foundUser.username,
+                            id: foundUser.id,
+                            is_admin:foundUser.is_admin
                         },
                         "test_jwt",
                         {
@@ -57,10 +56,13 @@ const login = (req, res) => {
                 }
             }
         })
-    
 }
 
+// const logout = (req, res) => {
+//     res.json({"jwt": null})
+// }
 module.exports = {
     signup,
-    login
+    login,
+    // logout  
 }
