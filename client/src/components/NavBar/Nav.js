@@ -14,12 +14,16 @@ import {
 function Nav() {
   const navigate = useNavigate();
   const [showToggle, setShowToggle] = useState(false);
-
+  const handleLogOut = (e) => {
+    localStorage.removeItem("jwt");
+    window.location.reload();
+  };
   const admin = (
     <NavList>
       <NavLink to="/admin">Admin</NavLink>
     </NavList>
   );
+
   if (localStorage.getItem("jwt") !== null) {
     const decoded = jwt_decode(localStorage.getItem("jwt"));
     return (

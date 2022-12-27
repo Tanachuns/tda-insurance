@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
+
+import {
+  BackgroundImg2,
+  Header2,
+  BackdropBox2,
+  ContainInput,
+} from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
 import jwt_decode from "jwt-decode";
@@ -50,9 +56,9 @@ const SignUp = (props) => {
             password:{" "}
             <InputBtn type="text" name="password" onChange={handleChange} />
             <br />
+            <LoginBtn type="submit">Sign-up</LoginBtn>
           </form>
         </ContainInput>
-        <LoginBtn type="submit">Sign-up</LoginBtn>
       </BackdropBox2>
     </BackgroundImg2>
   );
