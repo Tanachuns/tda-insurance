@@ -4,10 +4,8 @@ import {Link} from "react-router-dom";
 import './CardPackage.css'
 import { StyledBox, CardHeader, CardBody, StyledImage } from "../../StylesPages/CardPackage"
 
-
-
-
 const CardPackage = props => {
+    let cost = new Intl.NumberFormat().format(props.detail.cost)
     return (                
         <StyledBox>
             <CardHeader>
@@ -17,7 +15,7 @@ const CardPackage = props => {
                 <Link to={`/packages/${props.detail.id}`}>
                 
                     <h2>{props.detail.name}</h2>
-                    <h2>{props.detail.cost}</h2>
+                    <h2>{cost}</h2>
                     <p>{props.detail.descript}</p>
     
                 </Link>
