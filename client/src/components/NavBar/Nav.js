@@ -25,10 +25,10 @@ function Nav() {
                 <NavLink to="/signup">Sign Up</NavLink>
             </NavList>
             <NavList>
-                <NavLink to="/login">Test Login</NavLink>
+                <NavLink to="/login">Login</NavLink>
             </NavList>
             <NavList>
-                <NavLink to="/car">Test Car</NavLink>
+                <NavLink to="/car">Car</NavLink>
             </NavList>
         </NavMenu>
       </NavBar>
