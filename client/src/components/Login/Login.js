@@ -1,7 +1,7 @@
-import React, { useEffect, useState} from "react";
-import { useNavigate} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode";
 import {
   BrowserRouter,
   Routes,
@@ -14,21 +14,20 @@ import {
   InputBtn,
   LoginBtn,
   BackdropBox1,
-  BackgroundImg1
+  BackgroundImg1,
 } from "../StylesPages/LoginStyles";
 
 const NormalText = {
-  color: 'white',
-  paddingBottom: "10px" 
-}
+  color: "white",
+  paddingBottom: "10px",
+};
 /* eslint-disable react-hooks/exhaustive-deps */
 
 const Login = () => {
-  
   const url = "http://localhost:3002/";
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState("");
-  
+
   const handleChange = (e) => {
     setLoginData((prevState) => ({
       ...prevState,
@@ -36,26 +35,22 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = e => {
-      e.preventDefault()
-      axios.post(url +"auth/login", loginData)
-      .then(res => {
-        let token = res.data.jwt;
-     
-      let decode = jwt_decode(token)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post(url + "auth/login", loginData).then((res) => {
+      let token = res.data.jwt;
+
+      let decode = jwt_decode(token);
       console.log("decode jwt " + decode.username);
-        navigate("/");
-        localStorage.setItem("jwt", token);
-      
-      })
-   
-  }
+      navigate("/");
+      window.location.reload();
+      localStorage.setItem("jwt", token);
+    });
+  };
 
   return (
-
     <BackgroundImg1>
       <BackdropBox1>
-
         <Header>Welcome Back !</Header>
 
         <form onSubmit={handleSubmit}>
@@ -77,13 +72,12 @@ const Login = () => {
           <br />
           <LoginBtn type="submit">Login</LoginBtn>
         </form>
-        
-        <Link to="/signup" style={NormalText}>First time here ? Let's sign up</Link>
-        
 
+        <Link to="/signup" style={NormalText}>
+          First time here ? Let's sign up
+        </Link>
       </BackdropBox1>
     </BackgroundImg1>
-
   );
 };
 

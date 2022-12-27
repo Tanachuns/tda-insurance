@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
+import {
+  BackgroundImg2,
+  Header2,
+  BackdropBox2,
+  ContainInput,
+} from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
-=======
 import jwt_decode from "jwt-decode";
->>>>>>> 96a3c28a3348e63ea34deee08bcce8afe1d40c73
 // import './CardPackage.css'
 
 const SignUp = (props) => {
@@ -35,23 +37,27 @@ const SignUp = (props) => {
   return (
     <BackgroundImg2>
       <BackdropBox2>
-
         <Header2>Registration form</Header2>
         <ContainInput>
           <form onSubmit={handleSubmit}>
-            firstname: <InputBtn type="text" name="firstname" onChange={handleChange} />
-            lastname: <InputBtn type="text" name="lastname" onChange={handleChange} />
+            firstname:{" "}
+            <InputBtn type="text" name="firstname" onChange={handleChange} />
+            lastname:{" "}
+            <InputBtn type="text" name="lastname" onChange={handleChange} />
             <br />
-            address: <InputBtn type="text" name="address" onChange={handleChange} />
-            telephone: <InputBtn type="text" name="tel" onChange={handleChange} />
+            address:{" "}
+            <InputBtn type="text" name="address" onChange={handleChange} />
+            telephone:{" "}
+            <InputBtn type="text" name="tel" onChange={handleChange} />
             <br />
-            username: <InputBtn type="text" name="username" onChange={handleChange} />
-            password: <InputBtn type="text" name="password" onChange={handleChange} />
+            username:{" "}
+            <InputBtn type="text" name="username" onChange={handleChange} />
+            password:{" "}
+            <InputBtn type="text" name="password" onChange={handleChange} />
             <br />
           </form>
         </ContainInput>
         <LoginBtn type="submit">Sign-up</LoginBtn>
-
       </BackdropBox2>
     </BackgroundImg2>
   );
