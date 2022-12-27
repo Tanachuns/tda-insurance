@@ -3,6 +3,7 @@ import CarsDetails from "./CarsDetails";
 import { useState } from "react";
 import PackagesDetails from "./PackagesDetails";
 import jwt_decode from "jwt-decode";
+import { InputBtn } from "../StylesPages/LoginStyles";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);

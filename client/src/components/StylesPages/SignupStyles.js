@@ -20,7 +20,7 @@ export const BackdropBox2 = styled.div`
 
 `
 export const ContainInput = styled.div`
-    text-align: right;
+    // text-align: right;
     padding-right: 20px;
 `
 export const Header2 = styled.h2`

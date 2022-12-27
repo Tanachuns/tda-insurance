@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Container } from "../StylesPages/PagesLayout";
+
 const PackagesDetails = () => {
   const url = "http://localhost:3002";
   const [packages, setPackages] = useState([]);
@@ -11,6 +13,8 @@ const PackagesDetails = () => {
   const packagesElement = packages.map((packageItem, id) => {
     return (
       <>
+        
+
         <form
           method="PUT"
           id={"p" + packageItem.id}
@@ -84,6 +88,8 @@ const PackagesDetails = () => {
             />
           </td>
         </tr>
+
+        
       </>
     );
   });

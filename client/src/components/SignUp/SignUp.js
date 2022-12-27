@@ -39,26 +39,28 @@ const SignUp = (props) => {
     <BackgroundImg2>
       <BackdropBox2>
         <Header2>Registration form</Header2>
-        <ContainInput>
-          <form onSubmit={handleSubmit}>
-            firstname:{" "}
+
+        <form onSubmit={handleSubmit}>
+          <ContainInput>
+            Firstname:{" "}
             <InputBtn type="text" name="firstname" onChange={handleChange} />
-            lastname:{" "}
+            Lastname:{" "}
             <InputBtn type="text" name="lastname" onChange={handleChange} />
             <br />
-            address:{" "}
+            Address:{" "}
             <InputBtn type="text" name="address" onChange={handleChange} />
-            telephone:{" "}
+            Telephone:{" "}
             <InputBtn type="text" name="tel" onChange={handleChange} />
             <br />
-            username:{" "}
+            Username:{" "}
             <InputBtn type="text" name="username" onChange={handleChange} />
-            password:{" "}
+            Password:{" "}
             <InputBtn type="text" name="password" onChange={handleChange} />
             <br />
-            <LoginBtn type="submit">Sign-up</LoginBtn>
-          </form>
-        </ContainInput>
+          </ContainInput>
+          <LoginBtn type="submit">Sign-up</LoginBtn>
+        </form>
+
       </BackdropBox2>
     </BackgroundImg2>
   );

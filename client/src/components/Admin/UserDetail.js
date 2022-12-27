@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { CenterAdmin } from "../StylesPages/AdminStyles.js";
+
 const UserDetails = () => {
   const url = "http://localhost:3002";
   const [users, setUsers] = useState([]);
@@ -165,7 +167,7 @@ const UserDetails = () => {
   };
 
   return (
-    <div>
+    <CenterAdmin>
       <table>
         <thead>
           <tr>
@@ -220,7 +222,7 @@ const UserDetails = () => {
           </>
         </tbody>
       </table>
-    </div>
+    </CenterAdmin>
   );
 };
 

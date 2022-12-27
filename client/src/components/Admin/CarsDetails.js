@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { CenterAdmin2 } from "../StylesPages/AdminStyles";
 
 const CarsDetails = () => {
   const url = "http://localhost:3002";
@@ -151,7 +152,7 @@ const CarsDetails = () => {
   };
 
   return (
-    <div>
+    <CenterAdmin2>
       <table>
         <thead>
           <tr>
@@ -205,7 +206,7 @@ const CarsDetails = () => {
           </>
         </tbody>
       </table>
-    </div>
+    </CenterAdmin2>
   );
 };
 
