@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const CarsDetails = () => {
   const url = "http://localhost:3002";
   const [cars, setCars] = useState([]);

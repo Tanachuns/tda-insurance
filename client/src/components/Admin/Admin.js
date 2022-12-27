@@ -3,7 +3,6 @@ import CarsDetails from "./CarsDetails";
 
 import { useState } from "react";
 import PackagesDetails from "./PackagesDetails";
-import Profile from "../Profile/Profile";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
@@ -34,13 +33,6 @@ const Admin = () => {
           }}
         >
           Packages Detail
-        </button>
-        <button
-          onClick={() => {
-            handlePage(<Profile />);
-          }}
-        >
-          Profile Test
         </button>
       </header>
       <main>{page}</main>

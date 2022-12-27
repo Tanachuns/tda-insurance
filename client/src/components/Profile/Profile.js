@@ -8,10 +8,14 @@ const Profile = () => {
   var decoded = jwt_decode(localStorage.getItem("jwt"));
   console.log(decoded);
   useEffect(() => {
-    axios.get(url + "/users/" + decoded.id, {}).then((res) => {
-      console.log(res.data);
-      setProfile(res.data);
-    });
+    axios
+      .get(url + "/users/" + decoded.id, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setProfile(res.data);
+      });
   }, []);
   const handleEdit = (e) => {
     e.preventDefault();
