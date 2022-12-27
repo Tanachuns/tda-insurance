@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
-=======
 import jwt_decode from "jwt-decode";
->>>>>>> 96a3c28a3348e63ea34deee08bcce8afe1d40c73
 // import './CardPackage.css'
 
 const SignUp = (props) => {

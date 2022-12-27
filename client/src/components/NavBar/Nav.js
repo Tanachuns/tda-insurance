@@ -10,7 +10,6 @@ import {
 
 function Nav() {
   const [showToggle, setShowToggle] = useState(false);
-<<<<<<< HEAD
 
   if (localStorage.getItem("jwt") !== null) {
     console.log(localStorage.getItem("jwt"));
@@ -20,17 +19,6 @@ function Nav() {
         {/* Use components from NavBar-Style */}
         <NavBar showToggle={showToggle}>
           <Bars onClick={() => setShowToggle(!showToggle)} />
-=======
-  const handleLogOut = (e) =>{
-    localStorage.removeItem("jwt")
-  }
-  return (
-    // Use React Fragment
-    <>
-      {/* Use components from NavBar-Style */}
-      <NavBar showToggle={showToggle}>
-        <Bars onClick={() => setShowToggle(!showToggle)} />
->>>>>>> 9d7f7d09da2767c4d7893bb784e49568af3339d3
 
           <NavLogo to="/">
             <img
@@ -39,7 +27,6 @@ function Nav() {
             />
           </NavLogo>
 
-<<<<<<< HEAD
           <NavMenu showToggle={showToggle}>
             <NavList>
               <NavLink to="/profile">Profile</NavLink>
@@ -49,34 +36,7 @@ function Nav() {
       </>
     );
   }
-=======
-        <NavMenu showToggle={showToggle}>
-          <NavList>
-            <NavLink to="/admin">Admin</NavLink>
-          </NavList>
-          <NavList>
-            <NavLink to="/signup">Sign Up</NavLink>
-            </NavList>
-          
-          <NavList>
-            <NavLink onClick={handleLogOut}>Log Out</NavLink>
-          </NavList>
-       
-         
-          <NavList>
-          <NavLink to="/login">Login</NavLink>
-        </NavList>
-          
-           
-          <NavList>
-            <NavLink to="/profile">Profile</NavLink>
-          </NavList>
-        </NavMenu>
-      </NavBar>
-    </>
-  );
->>>>>>> 9d7f7d09da2767c4d7893bb784e49568af3339d3
+  return <div>Test</div>;
 }
-return <div>Test</div>;
 
 export default Nav;
