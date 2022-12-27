@@ -23,8 +23,7 @@ const signup = (req, res) => {
       // res.redirect(`/users/profile/${newUser.id}`);
     })
     .catch((err) => {
-      console.log(err);
-      // res.send(`error ${err}`)
+      res.sendStatus(409);
     });
 };
 
@@ -67,7 +66,7 @@ const login = (req, res) => {
 //     res.json({"jwt": null})
 // }
 module.exports = {
-    signup,
-    login,
-    // logout  
-}
+  signup,
+  login,
+  // logout
+};

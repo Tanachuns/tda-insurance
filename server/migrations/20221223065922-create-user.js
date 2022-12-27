@@ -11,11 +11,11 @@ module.exports = {
       },
       firstname: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
       },
       lastname: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
       },
       address: {
         type: Sequelize.STRING,
@@ -25,15 +25,16 @@ module.exports = {
       },
       is_admin: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
       },
       username: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
+        unique: true,
       },
       password: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
