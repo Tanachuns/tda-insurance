@@ -14,27 +14,28 @@ const show = (req, res) => {
   });
 };
 
-const postUser = (req, res) => {
-  User.create(req.body).then((newUser) => {
-    const token = jwt.sign(
-      {
-        username: newUser.username,
-        id: newUser.id,
-      },
-      "test jwt",
-      {
-        expiresIn: "30 days",
-      }
-    );
+// const postUser = (req, res) => {
+//   User.create(req.body).then((newUser) => {
+//     const token = jwt.sign(
+//       {
+//         username: newUser.username,
+//         id: newUser.id,
+//         is_admin:newUser.is_admin
+//       },
+//       "test jwt",
+//       {
+//         expiresIn: "30 days",
+//       }
+//     );
 
 
-  res.cookie("jwt", token)  // send cookie before send to client
-  res.json({"jwt": token})
-  console.log("JWT Token : " + token);
+//   res.cookie("jwt", token)  // send cookie before send to client
+//   res.json({"jwt": token})
+//   console.log("JWT Token : " + token);
 
-    // res.json(newUser);
-  });
-};
+//     // res.json(newUser);
+//   });
+// };
 
 const removeUser = (req, res) => {
   User.destroy({ where: { id: req.params.index } }).then(() => {
@@ -54,7 +55,7 @@ const editUser = (req, res) => {
 module.exports = {
   index,
   show,
-  postUser,
+  // postUser,
   removeUser,
   editUser,
 };

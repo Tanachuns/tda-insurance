@@ -17,15 +17,12 @@ const SignUp = props => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        axios.post("http://localhost:3002/users", signUpData,
-        {
-            withCredentials: true
-          })
+        axios.post("http://localhost:3002/users", signUpData)
         .then(res => {
             let token = res.data.jwt
             console.log(res);
-            // navigate('/')
-            // localStorage.setItem("jwt", token)
+            navigate('/')
+            localStorage.setItem("jwt", token)
             // document.cookies.set("jwt",token)
         })
     }   
