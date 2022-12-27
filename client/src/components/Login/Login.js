@@ -11,9 +11,14 @@ import {
   Header,
   InputBtn,
   LoginBtn,
-  NormalText,
+  BackdropBox,
+  BackgroundImg
 } from "../StylesPages/LoginStyles";
 
+const NormalText = {
+  color: 'white',
+  paddingBottom: "10px" 
+}
 /* eslint-disable react-hooks/exhaustive-deps */
 const url = "http://localhost:3002/auth";
 
@@ -25,37 +30,43 @@ const Login = () => {
     e.preventDefault();
     axios
       .post("")
-      .then((res) => {})
+      .then((res) => { })
       .catch((err) => {
         console.log(err);
       });
   };
 
   return (
-    <div>
-      <Header>Welcome Back !</Header>
 
-      <form onSubmit={handleSubmit}>
-        <InputBtn
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />{" "}
-        <br />
-        <InputBtn
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />{" "}
-        <br />
-        <LoginBtn type="submit">Login</LoginBtn>
-      </form>
-      <NormalText>
-        <Link to="/signup">First time here ? Let's sign up</Link>
-      </NormalText>
-    </div>
+    <BackgroundImg>
+      <BackdropBox>
+
+        <Header>Welcome Back !</Header>
+
+        <form onSubmit={handleSubmit}>
+          <InputBtn
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />{" "}
+          <br />
+          <InputBtn
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />{" "}
+          <br />
+          <LoginBtn type="submit">Login</LoginBtn>
+        </form>
+        
+        <Link to="/signup" style={NormalText}>First time here ? Let's sign up</Link>
+        
+
+      </BackdropBox>
+    </BackgroundImg>
+
   );
 };
 
