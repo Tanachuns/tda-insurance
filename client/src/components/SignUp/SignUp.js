@@ -21,9 +21,6 @@ const SignUp = (props) => {
 
     axios.post("http://localhost:3002/auth/signup", signUpData).then((res) => {
       let token = res.data.jwt;
-      console.log("jwt : " + token);
-      let decode = jwt_decode(token)
-      console.log(decode);
       navigate("/");
       localStorage.setItem("jwt", token);
       // document.cookies.set("jwt",token)
