@@ -35,26 +35,31 @@ const login = (req, res) => {
         }
     })
     .then(foundUser => {
+      if(foundUser === null){
+        return res.sendStatus(404)
+      }else{
+
         if (foundUser) {
-                if (req.body.password ===  foundUser.password) {
-                    const token = jwt.sign(
-                        {
-                            username: foundUser.username,
-                            id: foundUser.id,
-                            is_admin:foundUser.is_admin
-                        },
-                        "test_jwt",
-                        {
-                            expiresIn: "30 days",
-                        }
-                    )
-    
-                    res.cookie("jwt", token)
-                res.json({"jwt": token})
-                } else {
-                    return res.sendStatus(400)
-                }
+          if (req.body.password ===  foundUser.password) {
+            const token = jwt.sign(
+              {
+                username: foundUser.username,
+                id: foundUser.id,
+                is_admin:foundUser.is_admin
+              },
+              "test_jwt",
+              {
+                expiresIn: "30 days",
+              }
+              )
+              
+              res.cookie("jwt", token)
+              res.json({"jwt": token})
+            } else {
+              return res.sendStatus(400)
             }
+          }
+        }
         })
 }
 
