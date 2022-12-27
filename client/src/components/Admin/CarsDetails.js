@@ -8,6 +8,8 @@ const CarsDetails = () => {
       setCars(res.data);
     });
   }, []);
+
+  const hadleSearch = (e) => {};
   const carsElement = cars.map((car, id) => {
     return (
       <>

@@ -10,6 +10,7 @@ import Admin from "./components/Admin/Admin";
 import Car from "./components/Car/Car";
 import SignUp from "./components/SignUp/SignUp";
 import Packages from "./components/Packages/Packages";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route path="/car" element={<Car />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/packages/:id" element={<Packages />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>

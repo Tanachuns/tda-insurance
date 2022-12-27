@@ -6,9 +6,13 @@ const Profile = () => {
   const url = "http://localhost:3002";
   const [profile, setProfile] = useState({});
   useEffect(() => {
-    axios.get(url + "/users/1").then((res) => {
-      setProfile(res.data);
-    });
+    axios
+      .get(url + "/users/", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
+      .then((res) => {
+        setProfile(res.data);
+      });
   }, []);
   const handleEdit = (e) => {
     e.preventDefault();
@@ -29,7 +33,6 @@ const Profile = () => {
       window.location.reload(false);
     });
   };
-
   return (
     <div>
       <h1>Welcome {profile.firstname}</h1>
