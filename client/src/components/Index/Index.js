@@ -56,7 +56,12 @@ const Index = (props) => {
       <Flexarea>{filterPack}</Flexarea>
 
       <h2 className="head-of-slider">Which one to choose ?</h2>
-      <Carousel className="slider" autoPlay={true} infiniteLoop={true}>
+      <Carousel
+        className="slider"
+        autoPlay={true}
+        infiniteLoop={true}
+        showThumbs={false}
+      >
         <div>
           <h3 className="firstclass">
             <span>First</span> class Insurance

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 import {
   NavBar,
@@ -16,7 +16,6 @@ function Nav() {
   const [showToggle, setShowToggle] = useState(false);
   const handleLogOut = (e) => {
     localStorage.removeItem("jwt");
-    window.location.reload();
   };
   const admin = (
     <NavList>
@@ -45,7 +44,9 @@ function Nav() {
               <NavLink to="/profile">Profile</NavLink>
             </NavList>
             <NavList>
-              <NavLink onClick={handleLogOut}>Log Out</NavLink>
+              <NavLink to="/" onClick={handleLogOut}>
+                Log Out
+              </NavLink>
             </NavList>
           </NavMenu>
         </NavBar>
