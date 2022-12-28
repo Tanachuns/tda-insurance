@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "../StylesPages/PagesLayout";
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+// import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 const config = require("../../config.json");
 
 const PackagesDetails = () => {

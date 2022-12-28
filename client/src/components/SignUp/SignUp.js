@@ -12,10 +12,11 @@ import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
 import jwt_decode from "jwt-decode";
 // import './CardPackage.css'
-
+const config = require("../../config.json");
 const SignUp = (props) => {
   const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({});
+  const url = config.url;
 
   const handleChange = (e) => {
     setSignUpData((prevState) => ({
@@ -28,7 +29,7 @@ const SignUp = (props) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3002/auth/signup", signUpData)
+      .post(url + "/auth/signup", signUpData)
       .then((res) => {
         let token = res.data.jwt;
         navigate("/");
@@ -93,7 +94,6 @@ const SignUp = (props) => {
             <LoginBtn type="submit">Sign-up</LoginBtn>
           </form>
         </ContainInput>
-
       </BackdropBox2>
     </BackgroundImg2>
   );
