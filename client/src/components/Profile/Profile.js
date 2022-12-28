@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
-import { HeaderProfile, EditBtn  } from "../StylesPages/ProfileStyles";
+import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
 import { InputBtn } from "../StylesPages/LoginStyles";
 
 const Profile = () => {
@@ -44,47 +44,59 @@ const Profile = () => {
       });
   };
   return (
-    <div>
-      <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
-      <form
-        method="PUT"
-        onSubmit={(e) => {
-          handleEdit(e);
-        }}
-      >
-        <label>Firstname : </label>
-        <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
-        <label>Lastname : </label>
-        <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
-        <br />
-        <label>Address : </label>
-        <InputBtn type="text" name="address" defaultValue={profile.address} />
-        <label>Tel : </label>
-        <InputBtn type="text" name="tel" defaultValue={profile.tel} />
-        <br />
-        <label>Admin : </label>
-        <input
-          type="checkbox"
-          name="is_admin"
-          defaultChecked={profile.is_admin}
-          disabled
-        />
-        <br />
-        <label>Username : </label>
-        <InputBtn type="text" name="username" defaultValue={profile.username} />
-        <label>Password : </label>
-        <InputBtn
-          type="password"
-          name="password"
-          defaultValue={profile.password}
-        />
-        <br />
-        <EditBtn type="submit">Login</EditBtn>
-      </form>
-      <h2>My Cars</h2>
+    <>
+      <Border>
+        <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
+        <form
+          method="PUT"
+          onSubmit={(e) => {
+            handleEdit(e);
+          }}
+        >
+          <ContainerFlex>
+            <InputBox>
+              <Label>Firstname</Label>
+              <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
+            </InputBox>
 
+            <InputBox>
+              <Label>Lastname</Label>
+              <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
+            </InputBox>
+
+            <InputBox>
+              <Label>Address</Label>
+              <InputBtn type="text" name="address" defaultValue={profile.address} />
+            </InputBox>
+
+            <InputBox>
+              <Label>Tel</Label>
+              <InputBtn type="text" name="tel" defaultValue={profile.tel} />
+            </InputBox>
+
+            <InputBox>
+              <Label>Username</Label>
+              <InputBtn type="text" name="username" defaultValue={profile.username} />
+            </InputBox>
+
+            <InputBox>
+              <Label>Password</Label>
+              <InputBtn
+                type="password"
+                name="password"
+                defaultValue={profile.password}
+              />
+            </InputBox>
+            
+          </ContainerFlex>
+          <br />
+          <EditBtn type="submit">Login</EditBtn>
+        </form>
+      </Border>
+
+      <h2>My Cars</h2>
       <UserCarList userId={profile.id} />
-    </div>
+    </>
   );
 };
 

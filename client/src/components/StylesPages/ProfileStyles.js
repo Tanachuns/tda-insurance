@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderProfile = styled.h1 `
     color: #0f0e9f;
-
+    padding-bottom: 7px;
 `
 export const EditBtn = styled.button `
     border: none;
@@ -17,5 +17,22 @@ export const EditBtn = styled.button `
     z-index: 10;
 `
 export const Border = styled.div `
-    
+    border: 5px solid #3A0CD2;
+    max-width: 690px;
+    margin: 30px auto;
+    padding: 2px 10px 15px 10px;
+    border-radius: 20px;
+`
+export const ContainerFlex =  styled.div `
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
+export const InputBox = styled.div `
+    width: calc(100% / 2 - 20px);
+`
+export const Label = styled.p `
+    text-align: left;
+    margin: 0px;
+    font-weight: 500;
 `

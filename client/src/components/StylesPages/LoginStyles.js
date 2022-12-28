@@ -19,10 +19,11 @@ export const InputBtn = styled.input `
     border-radius: 20px;
     background: #DED5FE;
     color: black;
-    height: 25px;
-    width: 200px;
+    height: 35px;
+    width: 100%;
     margin-bottom: 8px;
     z-index: 10;
+
 `
 export const LoginBtn = styled.button `
     border: none;
