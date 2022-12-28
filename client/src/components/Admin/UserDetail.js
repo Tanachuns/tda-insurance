@@ -135,7 +135,7 @@ const UserDetails = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        alert(err);
+        alert("Something went wrong, Try Again.");
       });
   };
 
@@ -161,11 +161,16 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios.post(url + "/users/", data).then((res) => {
-      console.log(res);
-      alert("User Created");
-      window.location.reload(true);
-    });
+    axios
+      .post(url + "/users/", data)
+      .then((res) => {
+        console.log(res);
+        alert("User Created");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        alert("Something went wrong, Try Again.");
+      });
   };
 
   return (

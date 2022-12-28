@@ -66,26 +66,31 @@ function Packages() {
     .map((item) => {
       return (
         <option value={`${item.id}`}>
-          id : {item.plate_number} brand : {item.brand}
+          id : {item.plate_number} brand : {item.brand} type: {item.type}
         </option>
       );
     });
+  const buyForm = (
+    <form onSubmit={handleBuy}>
+      Choose a car:
+      <select name="cars" id="cars">
+        {carlist}
+      </select>
+      <input type="submit" value="BUY" />
+    </form>
+  );
+  console.log(localStorage.getItem("jwt"));
   return (
     <Container>
       <h1>{packages.name}</h1>
       <h2>{cost}</h2>
       <p>
         <b>for </b>
+        {packages.type === undefined ? null : packages.type.join(",")}
       </p>
       <p>{packages.descript}</p>
 
-      <form onSubmit={handleBuy}>
-        Choose a car:
-        <select name="cars" id="cars">
-          {carlist}
-        </select>
-        <input type="submit" value="BUY" />
-      </form>
+      {localStorage.getItem("jwt") === null ? <h3>Login to buy</h3> : buyForm}
     </Container>
   );
 }
