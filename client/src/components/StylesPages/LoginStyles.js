@@ -8,13 +8,13 @@ export const BackgroundImg1 = styled.div`
     background-repeat: no-repeat;
     z-index: -10;
 `
-export const Header = styled.h2 `
+export const Header = styled.h2`
     color: white;
     margin-top: 0;
     padding-top: 28px;
     z-index: 10;
 `
-export const InputBtn = styled.input `
+export const InputBtn = styled.input`
     border: none;
     border-radius: 20px;
     background: #DED5FE;
@@ -25,7 +25,7 @@ export const InputBtn = styled.input `
     z-index: 10;
 
 `
-export const LoginBtn = styled.button `
+export const LoginBtn = styled.button`
     border: none;
     height: 35px;
     width: 200px;
@@ -50,4 +50,25 @@ export const BackdropBox1 = styled.div`
     backdrop-filter: blur(17px);
     z-index: 1;
 
+`
+export const BtnFilter = styled.button`
+    border: none;
+    height: 35px;
+    width: 70px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: #3A0CD2;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    margin-left: 8px;
+`
+export const BtnSelect = styled.select`
+    border: none;
+    height: 35px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(169,176,244,1) 12%, rgba(244,192,195,1) 82%);
+    color: black;
 `

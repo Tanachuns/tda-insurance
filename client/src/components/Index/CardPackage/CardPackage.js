@@ -19,7 +19,7 @@ const CardPackage = (props) => {
 
       <Link to={`/packages/${props.detail.id}`}>
         <h2>{props.detail.name}</h2>
-        <h2>{cost}</h2>
+        <h2>{cost} Baht</h2>
         <p>{props.detail.descript}</p>
       </Link>
     </StyledBox>
