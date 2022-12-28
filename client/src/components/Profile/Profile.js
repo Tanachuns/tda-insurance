@@ -44,6 +44,17 @@ const Profile = () => {
         window.location.reload(false);
       });
   };
+  const isAdmin = (
+    <section>
+      <label>Admin : </label>
+      <input
+        type="checkbox"
+        name="is_admin"
+        defaultChecked={profile.is_admin}
+        disabled
+      />
+    </section>
+  );
   return (
     <div>
       <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
@@ -67,13 +78,7 @@ const Profile = () => {
         <label>Tel : </label>
         <InputBtn type="text" name="tel" defaultValue={profile.tel} />
         <br />
-        <label>Admin : </label>
-        <input
-          type="checkbox"
-          name="is_admin"
-          defaultChecked={profile.is_admin}
-          disabled
-        />
+        {profile.is_admin && isAdmin}
         <br />
         <label>Username : </label>
         <InputBtn type="text" name="username" defaultValue={profile.username} />
