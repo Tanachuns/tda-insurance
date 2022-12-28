@@ -137,6 +137,7 @@ const PackagesDetails = () => {
       cost: e.target.elements.cost.value,
       descript: e.target.elements.descript.value,
       picture: e.target.elements.picture.value,
+      level: e.target.elements.level.value,
       type: e.target.elements.type.value.split(","),
     };
     axios
@@ -147,7 +148,7 @@ const PackagesDetails = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        console.log(err);
+        alert("Something went wrong, Try Again.");
       });
   };
   return (

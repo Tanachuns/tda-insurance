@@ -70,6 +70,16 @@ function Packages() {
         </option>
       );
     });
+  const buyForm = (
+    <form onSubmit={handleBuy}>
+      Choose a car:
+      <select name="cars" id="cars">
+        {carlist}
+      </select>
+      <input type="submit" value="BUY" />
+    </form>
+  );
+  console.log(localStorage.getItem("jwt"));
   return (
     <Container>
       <h1>{packages.name}</h1>
@@ -80,13 +90,7 @@ function Packages() {
       </p>
       <p>{packages.descript}</p>
 
-      <form onSubmit={handleBuy}>
-        Choose a car:
-        <select name="cars" id="cars">
-          {carlist}
-        </select>
-        <input type="submit" value="BUY" />
-      </form>
+      {localStorage.getItem("jwt") === null ? <h3>Login to buy</h3> : buyForm}
     </Container>
   );
 }
