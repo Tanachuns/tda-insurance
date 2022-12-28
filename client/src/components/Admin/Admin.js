@@ -6,6 +6,9 @@ import jwt_decode from "jwt-decode";
 import { InputBtn } from "../StylesPages/LoginStyles";
 import { Navigate } from "react-router-dom";
 
+//
+import Test from "./Test";
+
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
   const handlePage = (p) => {
@@ -40,6 +43,15 @@ const Admin = () => {
             >
               Packages Detail
             </button>
+            
+            <button
+              onClick={() => {
+                handlePage(<Test />);
+              }}
+            >
+              Test
+            </button>
+
           </header>
           <main>{page}</main>
         </div>

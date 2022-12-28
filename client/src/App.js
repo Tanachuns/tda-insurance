@@ -10,7 +10,6 @@ import Admin from "./components/Admin/Admin";
 import SignUp from "./components/SignUp/SignUp";
 import Packages from "./components/Packages/Packages";
 import Profile from "./components/Profile/Profile";
-
 function App() {
   return (
     <div className="App">
