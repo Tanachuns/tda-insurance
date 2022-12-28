@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "../StylesPages/PagesLayout";
+// import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+const config = require("../../config.json");
 
 const PackagesDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [packages, setPackages] = useState([]);
   useEffect(() => {
     axios.get(url + "/packages").then((res) => {
@@ -13,8 +15,6 @@ const PackagesDetails = () => {
   const packagesElement = packages.map((packageItem, id) => {
     return (
       <>
-        
-
         <form
           method="PUT"
           id={"p" + packageItem.id}
@@ -88,8 +88,6 @@ const PackagesDetails = () => {
             />
           </td>
         </tr>
-
-        
       </>
     );
   });

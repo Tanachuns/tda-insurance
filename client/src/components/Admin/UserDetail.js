@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CenterAdmin } from "../StylesPages/AdminStyles.js";
+const config = require("../../config.json");
 
 const UserDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios

@@ -1,0 +1,30 @@
+
+.slider {
+    border-radius: 30px;
+    background-color: #0f0e9f;
+    color: aliceblue;
+    width: 100%;
+}
+ul li {
+    text-align: left;
+    padding-left: 50px;
+}
+.carousel .control-dots {
+    opacity: 0;
+}
+.head-of-slider {
+    margin: 35px 0px;
+    color: #0f0e9f;
+}
+.carousel .carousel-status {
+    opacity: 0;
+}
+.firstclass span {
+    color: #f4c804;
+}
+.secondclass span {
+    color: #9a9999;
+}
+.thirdclass span {
+    color: #b15116;
+}
