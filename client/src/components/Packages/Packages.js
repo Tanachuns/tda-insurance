@@ -22,9 +22,9 @@ function Packages() {
 
       .catch((err) => console.log(err));
   }
-  const myCarList = () => {
+  const myCarList = (userId) => {
     axios
-      .get("http://localhost:3002/cars/mycar/" + decoded.id)
+      .get("http://localhost:3002/cars/mycar/" + userId)
       .then((res) => {
         console.log(res.data);
 
@@ -35,7 +35,10 @@ function Packages() {
   };
   useEffect(() => {
     getPackages();
-    myCarList();
+    if (localStorage.getItem("jwt") !== null) {
+      const decoded = jwt_decode(localStorage.getItem("jwt"));
+      myCarList(decoded.id);
+    }
   }, []);
 
   console.log(useParams());
