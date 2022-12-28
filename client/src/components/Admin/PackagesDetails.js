@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "../StylesPages/PagesLayout";
+// import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+const config = require("../../config.json");
 
 const PackagesDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [packages, setPackages] = useState([]);
   useEffect(() => {
     axios.get(url + "/packages").then((res) => {
@@ -13,8 +15,6 @@ const PackagesDetails = () => {
   const packagesElement = packages.map((packageItem, id) => {
     return (
       <>
-        
-
         <form
           method="PUT"
           id={"p" + packageItem.id}
@@ -63,6 +63,19 @@ const PackagesDetails = () => {
             />
           </td>
           <td>
+            <select
+              data-selected={packageItem.level}
+              name="level"
+              form={"p" + packageItem.id}
+              defaultValue={packageItem.level}
+            >
+              <option value={null}>select level</option>
+              <option value={1}>First Class</option>
+              <option value={2}>Second Class</option>
+              <option value={3}>Third Class</option>
+            </select>
+          </td>
+          <td>
             <input
               type="text"
               form={"p" + packageItem.id}
@@ -88,8 +101,6 @@ const PackagesDetails = () => {
             />
           </td>
         </tr>
-
-        
       </>
     );
   });
@@ -126,6 +137,7 @@ const PackagesDetails = () => {
       cost: e.target.elements.cost.value,
       descript: e.target.elements.descript.value,
       picture: e.target.elements.picture.value,
+      level: e.target.elements.level.value,
       type: e.target.elements.type.value.split(","),
     };
     axios
@@ -136,7 +148,7 @@ const PackagesDetails = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        console.log(err);
+        alert("Something went wrong, Try Again.");
       });
   };
   return (
@@ -149,6 +161,7 @@ const PackagesDetails = () => {
             <th>Cost</th>
             <th>Desc</th>
             <th>Img</th>
+            <th>Level</th>
             <th>Type</th>
             <th>edit</th>
             <th>delete</th>
@@ -177,8 +190,17 @@ const PackagesDetails = () => {
                 <input type="picture" form={"packages"} name="picture" />
               </td>
               <td>
+                <select name="level" form={"packages"}>
+                  <option value={null}>select level</option>
+                  <option value={1}>First Class</option>
+                  <option value={2}>Second Class</option>
+                  <option value={3}>Third Class</option>
+                </select>
+              </td>
+              <td>
                 <input type="type" form={"packages"} name="type" />
               </td>
+
               <td>
                 <input type="submit" form={"packages"} value="add" />
               </td>

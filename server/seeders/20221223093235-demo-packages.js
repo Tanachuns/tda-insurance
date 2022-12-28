@@ -15,6 +15,7 @@ module.exports = {
           picture:
             "https://drive.google.com/uc?id=1wf8H5tilQIEnAJZNoaaG-0Ov7GN5OlS8&authuser=0",
           type: ["super_car", "car"],
+          level:1
         },
         {
           id: 5,
@@ -25,6 +26,7 @@ module.exports = {
           picture:
             "https://drive.google.com/uc?id=1GK73bfgBlPUfqS8tXS09-E5KYvO6IEf0&authuser=0",
           type: ["car", "truck", "van"],
+          level:1
         },
         {
           id: 7,
@@ -35,6 +37,7 @@ module.exports = {
           picture:
             "https://drive.google.com/uc?id=1IVR594H0YPLJFnUn2UabthPHJlwEcZPT&authuser=0",
           type: ["car", "van"],
+          level:3
         },
         {
           id: 6,
@@ -45,6 +48,7 @@ module.exports = {
           picture:
             "https://drive.google.com/uc?id=1Xi1jl8QH5HWznjZUZdV4LFZ09ixrWdJq&authuser=0",
           type: ["car", "super_car"],
+          level:2
         },
       ],
       {}

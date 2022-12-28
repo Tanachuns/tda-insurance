@@ -2,11 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
+<<<<<<< HEAD
 import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
+=======
+import { HeaderProfile, EditBtn } from "../StylesPages/ProfileStyles";
+>>>>>>> f4a031ffb0b0f88d40981fb46c420f374a0339ec
 import { InputBtn } from "../StylesPages/LoginStyles";
+const config = require("../../config.json");
 
 const Profile = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [profile, setProfile] = useState({});
   var decoded = jwt_decode(localStorage.getItem("jwt"));
   console.log(decoded);
@@ -43,7 +48,19 @@ const Profile = () => {
         window.location.reload(false);
       });
   };
+  const isAdmin = (
+    <section>
+      <label>Admin : </label>
+      <input
+        type="checkbox"
+        name="is_admin"
+        defaultChecked={profile.is_admin}
+        disabled
+      />
+    </section>
+  );
   return (
+<<<<<<< HEAD
     <>
       <Border>
         <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
@@ -58,6 +75,44 @@ const Profile = () => {
               <Label>Firstname</Label>
               <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
             </InputBox>
+=======
+    <div>
+      <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
+      <form
+        method="PUT"
+        onSubmit={(e) => {
+          handleEdit(e);
+        }}
+      >
+        <label>Firstname : </label>
+        <InputBtn
+          type="text"
+          name="firstname"
+          defaultValue={profile.firstname}
+        />
+        <label>Lastname : </label>
+        <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
+        <br />
+        <label>Address : </label>
+        <InputBtn type="text" name="address" defaultValue={profile.address} />
+        <label>Tel : </label>
+        <InputBtn type="text" name="tel" defaultValue={profile.tel} />
+        <br />
+        {profile.is_admin && isAdmin}
+        <br />
+        <label>Username : </label>
+        <InputBtn type="text" name="username" defaultValue={profile.username} />
+        <label>Password : </label>
+        <InputBtn
+          type="password"
+          name="password"
+          defaultValue={profile.password}
+        />
+        <br />
+        <EditBtn type="submit">Edit</EditBtn>
+      </form>
+      <h2>My Cars</h2>
+>>>>>>> f4a031ffb0b0f88d40981fb46c420f374a0339ec
 
             <InputBox>
               <Label>Lastname</Label>

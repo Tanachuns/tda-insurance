@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CenterAdmin } from "../StylesPages/AdminStyles.js";
+const config = require("../../config.json");
 
 const UserDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
@@ -133,7 +134,7 @@ const UserDetails = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        alert(err);
+        alert("Something went wrong, Try Again.");
       });
   };
 
@@ -159,11 +160,16 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    axios.post(url + "/users/", data).then((res) => {
-      console.log(res);
-      alert("User Created");
-      window.location.reload(true);
-    });
+    axios
+      .post(url + "/users/", data)
+      .then((res) => {
+        console.log(res);
+        alert("User Created");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        alert("Something went wrong, Try Again.");
+      });
   };
 
   return (

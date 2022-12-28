@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CenterAdmin2 } from "../StylesPages/AdminStyles";
+const config = require("../../config.json");
 
 const CarsDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [cars, setCars] = useState([]);
   useEffect(() => {
     axios.get(url + "/cars").then((res) => {
@@ -118,11 +119,16 @@ const CarsDetails = () => {
       year: e.target.elements.year.value,
       type: e.target.elements.type.value,
     };
-    axios.put(url + "/cars/" + data.id, data).then((res) => {
-      console.log(res);
-      alert("Car edited");
-      window.location.reload(false);
-    });
+    axios
+      .put(url + "/cars/" + data.id, data)
+      .then((res) => {
+        console.log(res);
+        alert("Car edited");
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert("Something went wrong, Try Again.");
+      });
   };
 
   const handleDelete = (e) => {
@@ -144,11 +150,16 @@ const CarsDetails = () => {
       year: e.target.elements.year.value,
       type: e.target.elements.type.value,
     };
-    axios.post(url + "/cars/", data).then((res) => {
-      console.log(res);
-      alert("Car Created");
-      window.location.reload(false);
-    });
+    axios
+      .post(url + "/cars/", data)
+      .then((res) => {
+        console.log(res);
+        alert("Car Created");
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert("Something went wrong, Try Again.");
+      });
   };
 
   return (
