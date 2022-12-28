@@ -66,7 +66,7 @@ function Packages() {
     .map((item) => {
       return (
         <option value={`${item.id}`}>
-          id : {item.plate_number} brand : {item.brand}
+          id : {item.plate_number} brand : {item.brand} type: {item.type}
         </option>
       );
     });
@@ -76,6 +76,7 @@ function Packages() {
       <h2>{cost}</h2>
       <p>
         <b>for </b>
+        {packages.type === undefined ? null : packages.type.join(",")}
       </p>
       <p>{packages.descript}</p>
 

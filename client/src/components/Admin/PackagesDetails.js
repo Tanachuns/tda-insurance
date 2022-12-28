@@ -63,6 +63,19 @@ const PackagesDetails = () => {
             />
           </td>
           <td>
+            <select
+              data-selected={packageItem.level}
+              name="level"
+              form={"p" + packageItem.id}
+              defaultValue={packageItem.level}
+            >
+              <option value={null}>select level</option>
+              <option value={1}>First Class</option>
+              <option value={2}>Second Class</option>
+              <option value={3}>Third Class</option>
+            </select>
+          </td>
+          <td>
             <input
               type="text"
               form={"p" + packageItem.id}
@@ -147,6 +160,7 @@ const PackagesDetails = () => {
             <th>Cost</th>
             <th>Desc</th>
             <th>Img</th>
+            <th>Level</th>
             <th>Type</th>
             <th>edit</th>
             <th>delete</th>
@@ -175,8 +189,17 @@ const PackagesDetails = () => {
                 <input type="picture" form={"packages"} name="picture" />
               </td>
               <td>
+                <select name="level" form={"packages"}>
+                  <option value={null}>select level</option>
+                  <option value={1}>First Class</option>
+                  <option value={2}>Second Class</option>
+                  <option value={3}>Third Class</option>
+                </select>
+              </td>
+              <td>
                 <input type="type" form={"packages"} name="type" />
               </td>
+
               <td>
                 <input type="submit" form={"packages"} value="add" />
               </td>
