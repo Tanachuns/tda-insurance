@@ -56,7 +56,7 @@ export const BtnFilter = styled.button`
     height: 35px;
     width: 70px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 70px;
     border-radius: 20px;
     background: #3A0CD2;
     color: white;
@@ -67,7 +67,8 @@ export const BtnFilter = styled.button`
 export const BtnSelect = styled.select`
     border: none;
     height: 35px;
-    margin-bottom: 15px;
+    width: 150px;
+    margin-bottom: 70px;
     border-radius: 20px;
     background: linear-gradient(90deg, rgba(169,176,244,1) 12%, rgba(244,192,195,1) 82%);
     color: black;
