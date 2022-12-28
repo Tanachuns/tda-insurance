@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
+const config = require("../../config.json");
 const Profile = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [profile, setProfile] = useState({});
   var decoded = jwt_decode(localStorage.getItem("jwt"));
   console.log(decoded);

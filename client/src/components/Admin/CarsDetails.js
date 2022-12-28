@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CenterAdmin2 } from "../StylesPages/AdminStyles";
+const config = require("../../config.json");
 
 const CarsDetails = () => {
-  const url = "http://localhost:3002";
+  const url = config.url;
   const [cars, setCars] = useState([]);
   useEffect(() => {
     axios.get(url + "/cars").then((res) => {

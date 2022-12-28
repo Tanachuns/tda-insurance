@@ -3,19 +3,19 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container } from "../StylesPages/PagesLayout";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+const config = require("../../config.json");
 
 function Packages() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [cars, setCars] = useState([]);
   const { id } = useParams();
-  const url = "http://localhost:3002/packages/" + id;
-  const decoded = jwt_decode(localStorage.getItem("jwt"));
+  const url = config.url;
   let cost = new Intl.NumberFormat().format(packages.cost);
   // fetch api
   async function getPackages() {
     axios
-      .get(url)
+      .get(url + "/packages/" + id)
       .then((res) => {
         setPackages(res.data);
       })
@@ -24,7 +24,7 @@ function Packages() {
   }
   const myCarList = (userId) => {
     axios
-      .get("http://localhost:3002/cars/mycar/" + userId)
+      .get(url + "/cars/mycar/" + userId)
       .then((res) => {
         console.log(res.data);
 
@@ -46,7 +46,7 @@ function Packages() {
     e.preventDefault();
     console.log(id);
     axios
-      .put("http://localhost:3002/cars/" + e.target.cars.value, {
+      .put(url + "/cars/" + e.target.cars.value, {
         insurance_id: id,
       })
       .then((res) => {
