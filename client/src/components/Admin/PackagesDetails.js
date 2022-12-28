@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container } from "../StylesPages/PagesLayout";
-// import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 const config = require("../../config.json");
+import { CenterPage } from "../StylesPages/AdminStyles"
+import { Container } from "../StylesPages/PagesLayout";
 
 const PackagesDetails = () => {
   const url = config.url;
@@ -61,19 +61,6 @@ const PackagesDetails = () => {
               name="picture"
               defaultValue={packageItem.picture}
             />
-          </td>
-          <td>
-            <select
-              data-selected={packageItem.level}
-              name="level"
-              form={"p" + packageItem.id}
-              defaultValue={packageItem.level}
-            >
-              <option value={null}>select level</option>
-              <option value={1}>First Class</option>
-              <option value={2}>Second Class</option>
-              <option value={3}>Third Class</option>
-            </select>
           </td>
           <td>
             <input
@@ -137,7 +124,6 @@ const PackagesDetails = () => {
       cost: e.target.elements.cost.value,
       descript: e.target.elements.descript.value,
       picture: e.target.elements.picture.value,
-      level: e.target.elements.level.value,
       type: e.target.elements.type.value.split(","),
     };
     axios
@@ -148,11 +134,12 @@ const PackagesDetails = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        alert("Something went wrong, Try Again.");
+        console.log(err);
       });
   };
   return (
-    <div>
+    <Container>
+    <CenterPage>
       <table>
         <thead>
           <tr>
@@ -161,7 +148,6 @@ const PackagesDetails = () => {
             <th>Cost</th>
             <th>Desc</th>
             <th>Img</th>
-            <th>Level</th>
             <th>Type</th>
             <th>edit</th>
             <th>delete</th>
@@ -190,17 +176,8 @@ const PackagesDetails = () => {
                 <input type="picture" form={"packages"} name="picture" />
               </td>
               <td>
-                <select name="level" form={"packages"}>
-                  <option value={null}>select level</option>
-                  <option value={1}>First Class</option>
-                  <option value={2}>Second Class</option>
-                  <option value={3}>Third Class</option>
-                </select>
-              </td>
-              <td>
                 <input type="type" form={"packages"} name="type" />
               </td>
-
               <td>
                 <input type="submit" form={"packages"} value="add" />
               </td>
@@ -208,7 +185,8 @@ const PackagesDetails = () => {
           </>
         </tbody>
       </table>
-    </div>
+    </CenterPage>
+    </Container>
   );
 };
 
