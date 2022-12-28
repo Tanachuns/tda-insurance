@@ -2,12 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
-<<<<<<< HEAD
-import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
-=======
-import { HeaderProfile, EditBtn } from "../StylesPages/ProfileStyles";
->>>>>>> f4a031ffb0b0f88d40981fb46c420f374a0339ec
-import { InputBtn } from "../StylesPages/LoginStyles";
+import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label, InputBtnProfile } from "../StylesPages/ProfileStyles";
+
 const config = require("../../config.json");
 
 const Profile = () => {
@@ -60,7 +56,6 @@ const Profile = () => {
     </section>
   );
   return (
-<<<<<<< HEAD
     <>
       <Border>
         <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
@@ -73,70 +68,32 @@ const Profile = () => {
           <ContainerFlex>
             <InputBox>
               <Label>Firstname</Label>
-              <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
+              <InputBtnProfile type="text" name="firstname" defaultValue={profile.firstname} />
             </InputBox>
-=======
-    <div>
-      <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
-      <form
-        method="PUT"
-        onSubmit={(e) => {
-          handleEdit(e);
-        }}
-      >
-        <label>Firstname : </label>
-        <InputBtn
-          type="text"
-          name="firstname"
-          defaultValue={profile.firstname}
-        />
-        <label>Lastname : </label>
-        <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
-        <br />
-        <label>Address : </label>
-        <InputBtn type="text" name="address" defaultValue={profile.address} />
-        <label>Tel : </label>
-        <InputBtn type="text" name="tel" defaultValue={profile.tel} />
-        <br />
-        {profile.is_admin && isAdmin}
-        <br />
-        <label>Username : </label>
-        <InputBtn type="text" name="username" defaultValue={profile.username} />
-        <label>Password : </label>
-        <InputBtn
-          type="password"
-          name="password"
-          defaultValue={profile.password}
-        />
-        <br />
-        <EditBtn type="submit">Edit</EditBtn>
-      </form>
-      <h2>My Cars</h2>
->>>>>>> f4a031ffb0b0f88d40981fb46c420f374a0339ec
 
             <InputBox>
               <Label>Lastname</Label>
-              <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
+              <InputBtnProfile type="text" name="lastname" defaultValue={profile.lastname} />
             </InputBox>
 
             <InputBox>
               <Label>Address</Label>
-              <InputBtn type="text" name="address" defaultValue={profile.address} />
+              <InputBtnProfile type="text" name="address" defaultValue={profile.address} />
             </InputBox>
 
             <InputBox>
               <Label>Tel</Label>
-              <InputBtn type="text" name="tel" defaultValue={profile.tel} />
+              <InputBtnProfile type="text" name="tel" defaultValue={profile.tel} />
             </InputBox>
 
             <InputBox>
               <Label>Username</Label>
-              <InputBtn type="text" name="username" defaultValue={profile.username} />
+              <InputBtnProfile type="text" name="username" defaultValue={profile.username} />
             </InputBox>
 
             <InputBox>
               <Label>Password</Label>
-              <InputBtn
+              <InputBtnProfile
                 type="password"
                 name="password"
                 defaultValue={profile.password}
@@ -145,7 +102,7 @@ const Profile = () => {
             
           </ContainerFlex>
           <br />
-          <EditBtn type="submit">Login</EditBtn>
+          <EditBtn type="submit">edit</EditBtn>
         </form>
       </Border>
 

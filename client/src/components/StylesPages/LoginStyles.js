@@ -20,7 +20,7 @@ export const InputBtn = styled.input `
     background: #DED5FE;
     color: black;
     height: 35px;
-    width: 100%;
+    width: 200px;
     margin-bottom: 8px;
     z-index: 10;
 

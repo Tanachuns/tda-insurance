@@ -2,20 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  Navigation,
-} from "react-router-dom";
-import {
-  Header,
-  InputBtn,
-  LoginBtn,
-  BackdropBox1,
-  BackgroundImg1,
-} from "../StylesPages/LoginStyles";
+import { BrowserRouter, Routes, Route, Link, Navigation } from "react-router-dom";
+import { Header, InputBtn, LoginBtn, BackdropBox1, BackgroundImg1 } from "../StylesPages/LoginStyles";
+
+
+
 const config = require("../../config.json");
 
 const NormalText = {
@@ -63,22 +54,10 @@ const Login = () => {
         <Header>Welcome Back !</Header>
 
         <form onSubmit={handleSubmit}>
-          <InputBtn
-            type="text"
-            placeholder="Username"
-            name="username"
-            // value={username}
-            onChange={handleChange}
-          />{" "}
-          <br />
-          <InputBtn
-            type="password"
-            placeholder="Password"
-            name="password"
-            // value={password}
-            onChange={handleChange}
-          />{" "}
-          <br />
+          <InputBtn type="text" placeholder="Username" name="username" onChange={handleChange}/>{" "}
+          
+          <InputBtn type="password" placeholder="Password" name="password" onChange={handleChange}/>{" "}
+          
           <LoginBtn type="submit">Login</LoginBtn>
         </form>
 
