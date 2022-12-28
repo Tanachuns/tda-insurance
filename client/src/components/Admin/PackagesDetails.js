@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container } from "../StylesPages/PagesLayout";
-// import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import { CenterPage } from "../StylesPages/AdminStyles"
+import { Container, Table } from "../StylesPages/PagesLayout"
 const config = require("../../config.json");
 
 const PackagesDetails = () => {
@@ -138,53 +138,55 @@ const PackagesDetails = () => {
       });
   };
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Cost</th>
-            <th>Desc</th>
-            <th>Img</th>
-            <th>Type</th>
-            <th>edit</th>
-            <th>delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {packagesElement}
-          <>
-            <form
-              method="POST"
-              id={"packages"}
-              onSubmit={(e) => handleCreate(e)}
-            ></form>
+    <Container> 
+      <CenterPage>
+        <Table>
+          <thead>
             <tr>
-              <td></td>
-              <td>
-                <input type="name" form={"packages"} name="name" />
-              </td>
-              <td>
-                <input type="cost" form={"packages"} name="cost" />
-              </td>
-              <td>
-                <input type="descript" form={"packages"} name="descript" />
-              </td>
-              <td>
-                <input type="picture" form={"packages"} name="picture" />
-              </td>
-              <td>
-                <input type="type" form={"packages"} name="type" />
-              </td>
-              <td>
-                <input type="submit" form={"packages"} value="add" />
-              </td>
+              <th>id</th>
+              <th>Name</th>
+              <th>Cost</th>
+              <th>Desc</th>
+              <th>Img</th>
+              <th>Type</th>
+              <th>edit</th>
+              <th>delete</th>
             </tr>
-          </>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {packagesElement}
+            <>
+              <form
+                method="POST"
+                id={"packages"}
+                onSubmit={(e) => handleCreate(e)}
+              ></form>
+              <tr>
+                <td></td>
+                <td>
+                  <input type="name" form={"packages"} name="name" />
+                </td>
+                <td>
+                  <input type="cost" form={"packages"} name="cost" />
+                </td>
+                <td>
+                  <input type="descript" form={"packages"} name="descript" />
+                </td>
+                <td>
+                  <input type="picture" form={"packages"} name="picture" />
+                </td>
+                <td>
+                  <input type="type" form={"packages"} name="type" />
+                </td>
+                <td>
+                  <input type="submit" form={"packages"} value="add" />
+                </td>
+              </tr>
+            </>
+          </tbody>
+        </Table>
+      </CenterPage>
+    </Container>  
   );
 };
 

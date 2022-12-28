@@ -7,6 +7,7 @@ import { InputBtn } from "../StylesPages/LoginStyles";
 import { Navigate } from "react-router-dom";
 
 //
+import Test from "./Test";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
@@ -43,13 +44,13 @@ const Admin = () => {
               Packages Detail
             </button>
 
-            {/* <button
+            <button
               onClick={() => {
                 handlePage(<Test />);
               }}
             >
               Test
-            </button> */}
+            </button>
           </header>
           <main>{page}</main>
         </div>

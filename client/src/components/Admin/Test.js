@@ -1,16 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Table, Thead, Tbody, Tr, Td, Th } from "../StylesPages/PackageDetailsStyles";
+import { CenterPage } from "../StylesPages/AdminStyles"
+import { Container } from "../StylesPages/PagesLayout"
+import { Table, Td } from "../StylesPages/PackageDetailsStyles"
+const config = require("../../config.json");
 
 const Test = () => {
-  const url = "http://localhost:3002";
-  const [test, setTest] = useState([]);
+  const url = config.url;
+  const [packages, setPackages] = useState([]);
   useEffect(() => {
     axios.get(url + "/packages").then((res) => {
-      setTest(res.data);
+      setPackages(res.data);
     });
   }, []);
-  const packagesElement = test.map((packageItem, id) => {
+  const packagesElement = packages.map((packageItem, id) => {
     return (
       <>
         <form
@@ -18,77 +21,74 @@ const Test = () => {
           id={"p" + packageItem.id}
           onSubmit={(e) => handleEdit(e)}
         ></form>
-        <Table key={id}>
-            <Thead>
-                <Tr>
-                    <Td>
-                        <input
-                            type="text"
-                            form={"p" + packageItem.id}
-                            name="id"
-                            defaultValue={packageItem.id}
-                            disabled
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="text"
-                        form={"p" + packageItem.id}
-                        name="name"
-                        defaultValue={packageItem.name}
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="text"
-                        form={"p" + packageItem.id}
-                        name="cost"
-                        defaultValue={packageItem.cost}
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="textarea"
-                        form={"p" + packageItem.id}
-                        name="descript"
-                        defaultValue={packageItem.descript}
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="text"
-                        form={"p" + packageItem.id}
-                        name="picture"
-                        defaultValue={packageItem.picture}
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="text"
-                        form={"p" + packageItem.id}
-                        name="type"
-                        defaultValue={packageItem.type}
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="submit"
-                        form={"p" + packageItem.id}
-                        name="edit"
-                        value="edit"
-                        />
-                    </Td>
-                    <Td>
-                        <input
-                        type="button"
-                        id={packageItem.id}
-                        value="delete"
-                        onClick={(e) => handleDelete(e)}
-                        />
-                    </Td>
-                </Tr>
-            </Thead>
-        </Table>        
+        <tr key={id}>
+          <td>
+            <input
+              type="text"
+              form={"p" + packageItem.id}
+              name="id"
+              defaultValue={packageItem.id}
+              disabled
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"p" + packageItem.id}
+              name="name"
+              defaultValue={packageItem.name}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"p" + packageItem.id}
+              name="cost"
+              defaultValue={packageItem.cost}
+            />
+          </td>
+          <td>
+            <input
+              type="textarea"
+              form={"p" + packageItem.id}
+              name="descript"
+              defaultValue={packageItem.descript}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"p" + packageItem.id}
+              name="picture"
+              defaultValue={packageItem.picture}
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              form={"p" + packageItem.id}
+              name="type"
+              defaultValue={packageItem.type}
+            />
+          </td>
+
+          <td>
+            <input
+              type="submit"
+              form={"p" + packageItem.id}
+              name="edit"
+              value="edit"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              id={packageItem.id}
+              value="delete"
+              onClick={(e) => handleDelete(e)}
+            />
+          </td>
+        </tr>
       </>
     );
   });
@@ -139,21 +139,22 @@ const Test = () => {
       });
   };
   return (
-    <div>
+    <Container>
+    <CenterPage>
       <Table>
-        <Thead>
-          <Tr>
-            <Th>id</Th>
-            <Th>Name</Th>
-            <Th>Cost</Th>
-            <Th>Desc</Th>
-            <Th>Img</Th>
-            <Th>Type</Th>
-            <Th>edit</Th>
-            <Th>delete</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Desc</th>
+            <th>Img</th>
+            <th>Type</th>
+            <th>edit</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
           {packagesElement}
           <>
             <form
@@ -161,31 +162,32 @@ const Test = () => {
               id={"packages"}
               onSubmit={(e) => handleCreate(e)}
             ></form>
-            <Tr>
-              <Td></Td>
-              <Td>
+            <tr>
+              <td></td>
+              <td>
                 <input type="name" form={"packages"} name="name" />
-              </Td>
-              <Td>
+              </td>
+              <td>
                 <input type="cost" form={"packages"} name="cost" />
-              </Td>
-              <Td>
+              </td>
+              <td>
                 <input type="descript" form={"packages"} name="descript" />
-              </Td>
-              <Td>
+              </td>
+              <td>
                 <input type="picture" form={"packages"} name="picture" />
-              </Td>
-              <Td>
+              </td>
+              <td>
                 <input type="type" form={"packages"} name="type" />
-              </Td>
-              <Td>
+              </td>
+              <td>
                 <input type="submit" form={"packages"} value="add" />
-              </Td>
-            </Tr>
+              </td>
+            </tr>
           </>
-        </Tbody>
+        </tbody>
       </Table>
-    </div>
+    </CenterPage>
+  </Container>
   );
 };
 
