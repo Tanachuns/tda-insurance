@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container } from "../StylesPages/PagesLayout";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 const PackagesDetails = () => {
   const url = "http://localhost:3002";
