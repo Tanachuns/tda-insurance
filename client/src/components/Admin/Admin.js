@@ -18,7 +18,7 @@ const Admin = () => {
       return (
         <div>
           <header>
-            <h1>Admin{decoded.username}</h1>
+            <h1>Admin {decoded.username}</h1>
             <button
               onClick={() => {
                 handlePage(<UserDetails />);
