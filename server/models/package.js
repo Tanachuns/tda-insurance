@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.INTEGER,
     descript: DataTypes.STRING,
     picture: DataTypes.STRING,
-    type: DataTypes.ARRAY(DataTypes.STRING)
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    level: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Package',

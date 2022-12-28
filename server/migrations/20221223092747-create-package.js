@@ -28,6 +28,10 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.TEXT),
         allowNull:false
       },
+      level:{
+        type: Sequelize.INTEGER,
+        allowNull:false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
