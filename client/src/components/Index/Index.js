@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 // import { Route, Routes, Link, Navigate } from "react-router-dom";
 import CardPackage from "./CardPackage/CardPackage.js";
-import { Flexarea } from "../StylesPages/CardPackage";
+import { Flexarea } from "../StylesPages/CardPackageStyles";
 import { Container } from "../StylesPages/PagesLayout";
 import { Carousel } from "react-responsive-carousel";
 import styles from "react-responsive-carousel/lib/styles/carousel.min.css";

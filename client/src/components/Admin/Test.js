@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import { Table, Thead, Tbody, Tr, Td, Th } from "../StylesPages/PackageDetailsStyles";
 
 const Test = () => {
   const url = "http://localhost:3002";
@@ -18,9 +18,9 @@ const Test = () => {
           id={"p" + packageItem.id}
           onSubmit={(e) => handleEdit(e)}
         ></form>
-        <Table>
+        <Table key={id}>
             <Thead>
-                <Tr key={id}>
+                <Tr>
                     <Td>
                         <input
                             type="text"

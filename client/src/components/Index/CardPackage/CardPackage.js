@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardBody,
   StyledImage,
-} from "../../StylesPages/CardPackage";
+} from "../../StylesPages/CardPackageStyles";
 
 const CardPackage = (props) => {
   let cost = new Intl.NumberFormat().format(props.detail.cost);
