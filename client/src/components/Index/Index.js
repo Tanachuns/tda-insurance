@@ -52,7 +52,7 @@ const Index = (props) => {
       <option value={3}>Third Class</option>
       </select>
       <input type='submit' value='select'/>
-    </form>
+      </form>
       <Flexarea>{filterPack}</Flexarea>
 
       <h2 className="head-of-slider">Which one to choose ?</h2>
