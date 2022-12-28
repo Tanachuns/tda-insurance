@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
+import { HeaderProfile, EditBtn  } from "../StylesPages/ProfileStyles";
+import { InputBtn } from "../StylesPages/LoginStyles";
+
 const Profile = () => {
   const url = "http://localhost:3002";
   const [profile, setProfile] = useState({});
@@ -42,7 +45,7 @@ const Profile = () => {
   };
   return (
     <div>
-      <h1>Welcome {profile.firstname}</h1>
+      <HeaderProfile>Welcome {profile.firstname}</HeaderProfile>
       <form
         method="PUT"
         onSubmit={(e) => {
@@ -50,16 +53,14 @@ const Profile = () => {
         }}
       >
         <label>Firstname : </label>
-        <input type="text" name="firstname" defaultValue={profile.firstname} />
-        <br />
+        <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
         <label>Lastname : </label>
-        <input type="text" name="lastname" defaultValue={profile.lastname} />
+        <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
         <br />
         <label>Address : </label>
-        <input type="text" name="address" defaultValue={profile.address} />
-        <br />
+        <InputBtn type="text" name="address" defaultValue={profile.address} />
         <label>Tel : </label>
-        <input type="text" name="tel" defaultValue={profile.tel} />
+        <InputBtn type="text" name="tel" defaultValue={profile.tel} />
         <br />
         <label>Admin : </label>
         <input
@@ -70,16 +71,15 @@ const Profile = () => {
         />
         <br />
         <label>Username : </label>
-        <input type="text" name="username" defaultValue={profile.username} />
-        <br />
+        <InputBtn type="text" name="username" defaultValue={profile.username} />
         <label>Password : </label>
-        <input
+        <InputBtn
           type="password"
           name="password"
           defaultValue={profile.password}
         />
         <br />
-        <input type="submit" value="edit" />
+        <EditBtn type="submit">Login</EditBtn>
       </form>
       <h2>My Cars</h2>
 
