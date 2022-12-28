@@ -84,7 +84,7 @@ const Profile = () => {
           defaultValue={profile.password}
         />
         <br />
-        <EditBtn type="submit">Login</EditBtn>
+        <EditBtn type="submit">Edit</EditBtn>
       </form>
       <h2>My Cars</h2>
 

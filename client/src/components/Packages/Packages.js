@@ -33,6 +33,7 @@ function Packages() {
 
       .catch((err) => console.log(err));
   };
+  console.log(packages.type);
   useEffect(() => {
     getPackages();
     if (localStorage.getItem("jwt") !== null) {
@@ -73,8 +74,11 @@ function Packages() {
     <Container>
       <h1>{packages.name}</h1>
       <h2>{cost}</h2>
-      <img src="" />
+      <p>
+        <b>for </b>
+      </p>
       <p>{packages.descript}</p>
+
       <form onSubmit={handleBuy}>
         Choose a car:
         <select name="cars" id="cars">
