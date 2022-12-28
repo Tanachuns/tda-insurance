@@ -10,8 +10,7 @@ function Packages() {
   const [cars, setCars] = useState([]);
   const { id } = useParams();
   const url = "http://localhost:3002/packages/" + id;
-  const decoded = jwt_decode(localStorage.getItem("jwt"));
-  console.log(decoded.id);
+ 
   let cost = new Intl.NumberFormat().format(packages.cost)
   // fetch api
   async function getPackages() {
@@ -23,9 +22,9 @@ function Packages() {
 
       .catch((err) => console.log(err));
   }
-  const myCarList = () => {
+  const myCarList = (userId) => {
     axios
-      .get("http://localhost:3002/cars/mycar/" + decoded.id)
+      .get("http://localhost:3002/cars/mycar/" + userId)
       .then((res) => {
         console.log(res.data);
 
@@ -36,7 +35,11 @@ function Packages() {
   };
   useEffect(() => {
     getPackages();
-    myCarList();
+    if (localStorage.getItem("jwt") !== null){
+      const decoded = jwt_decode(localStorage.getItem("jwt"));
+     myCarList(decoded.id);
+    }
+
   }, []);
 
   console.log(useParams());
