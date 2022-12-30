@@ -2,8 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
+<<<<<<< HEAD
 import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
 import { InputBtn } from "../StylesPages/LoginStyles";
+=======
+import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label, InputBtnProfile } from "../StylesPages/ProfileStyles";
+
+>>>>>>> e41dbe03de09ff71c91a2a276286b20a7b44a604
 const config = require("../../config.json");
 
 const Profile = () => {
@@ -68,32 +73,32 @@ const Profile = () => {
           <ContainerFlex>
             <InputBox>
               <Label>Firstname</Label>
-              <InputBtn type="text" name="firstname" defaultValue={profile.firstname} />
+              <InputBtnProfile type="text" name="firstname" defaultValue={profile.firstname} />
             </InputBox>
 
             <InputBox>
               <Label>Lastname</Label>
-              <InputBtn type="text" name="lastname" defaultValue={profile.lastname} />
+              <InputBtnProfile type="text" name="lastname" defaultValue={profile.lastname} />
             </InputBox>
 
             <InputBox>
               <Label>Address</Label>
-              <InputBtn type="text" name="address" defaultValue={profile.address} />
+              <InputBtnProfile type="text" name="address" defaultValue={profile.address} />
             </InputBox>
 
             <InputBox>
               <Label>Tel</Label>
-              <InputBtn type="text" name="tel" defaultValue={profile.tel} />
+              <InputBtnProfile type="text" name="tel" defaultValue={profile.tel} />
             </InputBox>
 
             <InputBox>
               <Label>Username</Label>
-              <InputBtn type="text" name="username" defaultValue={profile.username} />
+              <InputBtnProfile type="text" name="username" defaultValue={profile.username} />
             </InputBox>
 
             <InputBox>
               <Label>Password</Label>
-              <InputBtn
+              <InputBtnProfile
                 type="password"
                 name="password"
                 defaultValue={profile.password}
@@ -102,7 +107,7 @@ const Profile = () => {
             
           </ContainerFlex>
           <br />
-          <EditBtn type="submit">Login</EditBtn>
+          <EditBtn type="submit">edit</EditBtn>
         </form>
       </Border>
 

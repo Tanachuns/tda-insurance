@@ -66,6 +66,9 @@ function Nav() {
         </NavLogo>
         <NavMenu showToggle={showToggle}>
           <NavList>
+            <NavLink to="/">Package</NavLink>
+          </NavList>
+          <NavList>
             <NavLink to="/signup">Sign Up</NavLink>
           </NavList>
           <NavList>

@@ -4,6 +4,7 @@
     background-color: #0f0e9f;
     color: aliceblue;
     width: 100%;
+    padding-bottom: 25px;
 }
 ul li {
     text-align: left;
@@ -13,7 +14,7 @@ ul li {
     opacity: 0;
 }
 .head-of-slider {
-    margin: 35px 0px;
+    padding: 45px 0;
     color: #0f0e9f;
 }
 .carousel .carousel-status {

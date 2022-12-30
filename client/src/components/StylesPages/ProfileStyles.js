@@ -36,3 +36,14 @@ export const Label = styled.p `
     margin: 0px;
     font-weight: 500;
 `
+export const InputBtnProfile = styled.input `
+    border: none;
+    border-radius: 20px;
+    background: #DED5FE;
+    color: black;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 8px;
+    z-index: 10;
+
+`

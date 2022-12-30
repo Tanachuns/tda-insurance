@@ -13,11 +13,11 @@ export const StyledBox = styled.div `
     width: 300px;
     display: block;
     text-align: center;
-    margin: 5px;
+    margin: 10px 10px;
     cursor: pointer;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 15px;
-
+    overflow: hidden;
 `
 
 export const CardHeader = styled.div `
