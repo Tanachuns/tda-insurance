@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const config = require("../../config.json");
-import { CenterPage } from "../StylesPages/AdminStyles"
+import { CenterPage } from "../StylesPages/AdminStyles";
 import { Container } from "../StylesPages/PagesLayout";
+const config = require("../../config.json");
 
 const PackagesDetails = () => {
   const url = config.url;
