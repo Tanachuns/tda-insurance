@@ -5,22 +5,22 @@ import "./CardPackage.css";
 import {
   StyledBox,
   CardHeader,
-  CardBody,
   StyledImage,
+  DescriptTxt
 } from "../../StylesPages/CardPackageStyles";
 
 const CardPackage = (props) => {
   let cost = new Intl.NumberFormat().format(props.detail.cost);
   return (
-    <StyledBox>
+    <StyledBox className="cardHover">
       <CardHeader>
         <StyledImage src={props.detail.picture} />
       </CardHeader>
 
       <Link to={`/packages/${props.detail.id}`}>
         <h2>{props.detail.name}</h2>
-        <h2>{cost} Baht</h2>
-        <p>{props.detail.descript}</p>
+        <h3>{cost} Baht / Year</h3>
+        <DescriptTxt>{props.detail.descript}</DescriptTxt>
       </Link>
     </StyledBox>
   );

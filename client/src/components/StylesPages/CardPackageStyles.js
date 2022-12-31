@@ -27,14 +27,17 @@ export const CardHeader = styled.div `
     padding-top : 0;
     border-radius: 15px 15px 0 0;
 `
-export const CardBody = styled.div `
-    heigh: 265px;
-    width:300px;
-    margin: 0;
-`
 
 export const StyledImage = styled.img `
     width: 300px;
     position: relative;
     border-radius: 15px 15px 0 0;
+`
+
+export const DescriptTxt = styled.div `
+    margin: 25px;
+    padding: 10px;
+    box-shadow: rgb(15, 14 ,159 ,0.2) 0px 2px 8px 0px;
+    color: #0f0e9f;
+    height: 70px;
 `

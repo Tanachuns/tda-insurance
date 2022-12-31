@@ -40,7 +40,7 @@ const Index = (props) => {
           filterList.push(item)
         }
       })
-      setFilterPack(filterList)
+      setFilterPack(filterList) 
        }
   }
 

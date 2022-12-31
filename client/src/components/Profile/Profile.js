@@ -2,13 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
-<<<<<<< HEAD
-import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
-import { InputBtn } from "../StylesPages/LoginStyles";
-=======
 import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label, InputBtnProfile } from "../StylesPages/ProfileStyles";
-
->>>>>>> e41dbe03de09ff71c91a2a276286b20a7b44a604
+import { InputBtn } from "../StylesPages/LoginStyles";
 const config = require("../../config.json");
 
 const Profile = () => {
