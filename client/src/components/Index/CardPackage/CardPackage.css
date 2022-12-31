@@ -2,6 +2,11 @@
     text-decoration: none;
 }
 
-h2, h3 {
+h2 {
+    color: #0f0e9f;
+    text-transform: uppercase;
+}
+
+h3 {
     color: #0f0e9f;
 }

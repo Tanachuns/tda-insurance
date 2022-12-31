@@ -34,10 +34,16 @@ export const StyledImage = styled.img `
     border-radius: 15px 15px 0 0;
 `
 
+export const BlueTape = styled.img `
+    width: 80px;
+    position: absolute;
+`
+
 export const DescriptTxt = styled.div `
     margin: 25px;
     padding: 10px;
-    box-shadow: rgb(15, 14 ,159 ,0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 8px 8px 0px;
     color: #0f0e9f;
     height: 70px;
+    background-color: rgb(15, 14 ,159 ,0.05)
 `

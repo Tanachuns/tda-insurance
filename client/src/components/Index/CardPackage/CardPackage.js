@@ -6,13 +6,14 @@ import {
   StyledBox,
   CardHeader,
   StyledImage,
-  DescriptTxt
+  DescriptTxt,
+  BlueTape
 } from "../../StylesPages/CardPackageStyles";
 
 const CardPackage = (props) => {
   let cost = new Intl.NumberFormat().format(props.detail.cost);
   return (
-    <StyledBox className="cardHover">
+    <StyledBox>
       <CardHeader>
         <StyledImage src={props.detail.picture} />
       </CardHeader>
