@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CenterAdmin, CenterPage } from "../StylesPages/AdminStyles.js";
-import { Container } from "../StylesPages/PagesLayout"
+import { Container } from "../StylesPages/PagesLayout";
 const config = require("../../config.json");
 
 const UserDetails = () => {
@@ -174,64 +174,62 @@ const UserDetails = () => {
   };
 
   return (
-    <Container>
-      <CenterPage>
-        <table>
-          <thead>
+    <CenterPage>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>address</th>
+            <th>tel</th>
+            <th>is_admin</th>
+            <th>username</th>
+            <th>password</th>
+            <th>edit</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {usersElement}
+          <>
+            <form
+              method="POST"
+              id="useradd"
+              onSubmit={(e) => handleCreate(e)}
+            ></form>
             <tr>
-              <th>id</th>
-              <th>firstname</th>
-              <th>lastname</th>
-              <th>address</th>
-              <th>tel</th>
-              <th>is_admin</th>
-              <th>username</th>
-              <th>password</th>
-              <th>edit</th>
-              <th>delete</th>
+              <td></td>
+              <td>
+                <input type="text" form="useradd" name="firstname" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="lastname" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="address" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="tel" />
+              </td>
+              <td>
+                <input type="checkbox" form="useradd" name="is_admin" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="username" />
+              </td>
+              <td>
+                <input type="text" form="useradd" name="password" />
+              </td>
+              <td>
+                <input type="submit" form="useradd" name="edit" value="add" />
+              </td>
+              <td></td>
             </tr>
-          </thead>
-          <tbody>
-            {usersElement}
-            <>
-              <form
-                method="POST"
-                id="useradd"
-                onSubmit={(e) => handleCreate(e)}
-              ></form>
-              <tr>
-                <td></td>
-                <td>
-                  <input type="text" form="useradd" name="firstname" />
-                </td>
-                <td>
-                  <input type="text" form="useradd" name="lastname" />
-                </td>
-                <td>
-                  <input type="text" form="useradd" name="address" />
-                </td>
-                <td>
-                  <input type="text" form="useradd" name="tel" />
-                </td>
-                <td>
-                  <input type="checkbox" form="useradd" name="is_admin" />
-                </td>
-                <td>
-                  <input type="text" form="useradd" name="username" />
-                </td>
-                <td>
-                  <input type="text" form="useradd" name="password" />
-                </td>
-                <td>
-                  <input type="submit" form="useradd" name="edit" value="add" />
-                </td>
-                <td></td>
-              </tr>
-            </>
-          </tbody>
-        </table>
-      </CenterPage>
-    </Container>
+          </>
+        </tbody>
+      </table>
+    </CenterPage>
   );
 };
 

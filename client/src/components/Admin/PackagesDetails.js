@@ -138,7 +138,6 @@ const PackagesDetails = () => {
       });
   };
   return (
-    <Container>
     <CenterPage>
       <table>
         <thead>
@@ -186,7 +185,6 @@ const PackagesDetails = () => {
         </tbody>
       </table>
     </CenterPage>
-    </Container>
   );
 };
 
