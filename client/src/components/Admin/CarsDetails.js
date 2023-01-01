@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CenterAdmin2 } from "../StylesPages/AdminStyles";
+import { CenterPage } from "../StylesPages/AdminStyles";
 const config = require("../../config.json");
 
 const CarsDetails = () => {
@@ -163,7 +163,7 @@ const CarsDetails = () => {
   };
 
   return (
-    <CenterAdmin2>
+    <CenterPage>
       <table>
         <thead>
           <tr>
@@ -217,7 +217,7 @@ const CarsDetails = () => {
           </>
         </tbody>
       </table>
-    </CenterAdmin2>
+    </CenterPage>
   );
 };
 
