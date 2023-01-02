@@ -55,7 +55,7 @@ const Index = (props) => {
         <option value={2}>Second Class</option>
         <option value={3}>Third Class</option>
       </BtnSelect>
-      <BtnFilter type="submit">choose</BtnFilter>
+      <BtnFilter className="btnHover" type="submit">Choose</BtnFilter>
       </form>
       <Flexarea>{filterPack}</Flexarea>
 

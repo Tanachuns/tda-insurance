@@ -5,6 +5,7 @@ export const Container = styled.div `
     max-width: 960px;  
     margin: 0 auto; 
     object-fit: fill;
+    padding-top: 0;
 `
 export const Table = styled.table `
     width: 100%;

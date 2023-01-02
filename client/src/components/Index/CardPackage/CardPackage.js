@@ -6,8 +6,7 @@ import {
   StyledBox,
   CardHeader,
   StyledImage,
-  DescriptTxt,
-  BlueTape
+  DescriptTxt
 } from "../../StylesPages/CardPackageStyles";
 
 const CardPackage = (props) => {

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container } from "../StylesPages/PagesLayout";
+import { 
+  BoxCard,
+  GridArea,
+  GridBox,
+  ImgPackage 
+} from "../StylesPages/PackagesStyles";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 const config = require("../../config.json");
@@ -70,9 +76,9 @@ function Packages() {
         </option>
       );
     });
-  const buyForm = (
+  const buyForm = ( 
     <form onSubmit={handleBuy}>
-      Choose a car:
+      Choose a car: 
       <select name="cars" id="cars">
         {carlist}
       </select>
@@ -82,15 +88,23 @@ function Packages() {
   console.log(localStorage.getItem("jwt"));
   return (
     <Container>
-      <h1>{packages.name}</h1>
-      <h2>{cost}</h2>
-      <p>
-        <b>for </b>
-        {packages.type === undefined ? null : packages.type.join(",")}
-      </p>
-      <p>{packages.descript}</p>
+      <BoxCard>
+        <ImgPackage src={packages.picture} />
+          <h1>{packages.name}</h1>
+          <h2>{cost} Baht / Year</h2>
+        <GridArea>
+          <GridBox>
+            <b>for </b>
+            {packages.type === undefined ? null : packages.type.join(",")}
+            <p>{packages.descript}</p>
+            {localStorage.getItem("jwt") === null ? <h3>Login to buy</h3> : buyForm}
+          </GridBox>
+          <GridBox>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tincidunt purus. Aliquam iaculis maximus nunc, vitae blandit sapien tristique quis. In tristique euismod augue, et accumsan diam hendrerit sed. In pulvinar cursus sem quis rhoncus. </p>
+          </GridBox>
+        </GridArea>
 
-      {localStorage.getItem("jwt") === null ? <h3>Login to buy</h3> : buyForm}
+      </BoxCard>
     </Container>
   );
 }

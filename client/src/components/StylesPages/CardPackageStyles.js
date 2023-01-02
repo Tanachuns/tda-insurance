@@ -34,11 +34,6 @@ export const StyledImage = styled.img `
     border-radius: 15px 15px 0 0;
 `
 
-export const BlueTape = styled.img `
-    width: 80px;
-    position: absolute;
-`
-
 export const DescriptTxt = styled.div `
     margin: 25px;
     padding: 10px;
