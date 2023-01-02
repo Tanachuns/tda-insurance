@@ -5,3 +5,17 @@ export const CenterPage = styled.div`
   overflow-x: auto;
   margin: 1em;
 `;
+
+export const DashboardBtn = styled.button `
+    color: black;
+    blackground-color: #ded5fe;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    &.active {
+        color: #fff;
+        background-color: #0f0e9f;
+    }
+`

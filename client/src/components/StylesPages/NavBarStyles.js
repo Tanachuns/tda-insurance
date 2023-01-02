@@ -4,7 +4,6 @@ import { FaBars } from "react-icons/fa";
 
 export const NavBar = styled.nav `
     background: #0f0e9f;
-    // height: 85px;
     height: ${props => props.showToggle ? 'auto' : '85px'}
     width: 100%;
     display: flex;
