@@ -15,10 +15,46 @@ export const ImgPackage = styled.img `
 export const GridArea = styled.div `
     position: relative;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 45% 55%;
     padding: 0px 30px 30px 30px;
 `
 
 export const GridBox = styled.div `
     padding: 20px;
+`
+
+export const TxtLorem = styled.p `
+    text-align: left;
+`
+
+export const H1 = styled.h1 `
+    color: #0f0e9f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+`
+
+export const H2UpperCase = styled.h2 `
+    color: #0f0e9f;
+    text-transform: uppercase;
+    font-size: 22px;
+`
+export const H2 = styled.h2 `
+    color: #0f0e9f;
+`
+
+export const H3 = styled.h3 `
+    color: #0f0e9f;
+`
+
+export const BuyBtn = styled.input `
+    background-color: #0f0e9f;
+    color: #fff;
+    border-radius: 8px;
+    margin-left: 5px;
+    border: 1px solid #0f0e9f;
+`
+
+export const CarList = styled.select `
+    border-radius: 8px;
+    background-color: #ded5fe;
 `

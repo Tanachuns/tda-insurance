@@ -8,6 +8,7 @@ import {
   StyledImage,
   DescriptTxt
 } from "../../StylesPages/CardPackageStyles";
+import { H2UpperCase, H3 } from "../../StylesPages/PackagesStyles"
 
 const CardPackage = (props) => {
   let cost = new Intl.NumberFormat().format(props.detail.cost);
@@ -18,8 +19,8 @@ const CardPackage = (props) => {
       </CardHeader>
 
       <Link to={`/packages/${props.detail.id}`}>
-        <h2>{props.detail.name}</h2>
-        <h3>{cost} Baht / Year</h3>
+        <H2UpperCase>{props.detail.name}</H2UpperCase>
+        <H3>{cost} Baht / Year</H3>
         <DescriptTxt>{props.detail.descript}</DescriptTxt>
       </Link>
     </StyledBox>

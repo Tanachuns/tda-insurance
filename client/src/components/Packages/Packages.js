@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container } from "../StylesPages/PagesLayout";
 import { 
-  BoxCard,
-  GridArea,
-  GridBox,
-  ImgPackage 
+  BoxCard, GridArea, GridBox, ImgPackage, H1, H2, BuyBtn, CarList, TxtLorem
 } from "../StylesPages/PackagesStyles";
+import { DescriptTxt } from "../StylesPages/CardPackageStyles";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 const config = require("../../config.json");
@@ -18,7 +16,6 @@ function Packages() {
   const { id } = useParams();
   const url = config.url;
   let cost = new Intl.NumberFormat().format(packages.cost);
-  // fetch api
   async function getPackages() {
     axios
       .get(url + "/packages/" + id)
@@ -79,10 +76,10 @@ function Packages() {
   const buyForm = ( 
     <form onSubmit={handleBuy}>
       Choose a car: 
-      <select name="cars" id="cars">
+      <CarList name="cars" id="cars">
         {carlist}
-      </select>
-      <input type="submit" value="BUY" />
+      </CarList>
+      <BuyBtn type="submit" value="BUY" />
     </form>
   );
   console.log(localStorage.getItem("jwt"));
@@ -90,17 +87,18 @@ function Packages() {
     <Container>
       <BoxCard>
         <ImgPackage src={packages.picture} />
-          <h1>{packages.name}</h1>
-          <h2>{cost} Baht / Year</h2>
+          <H1>{packages.name}</H1>
+          <H2>{cost} Baht / Year</H2>
         <GridArea>
           <GridBox>
             <b>for </b>
             {packages.type === undefined ? null : packages.type.join(",")}
-            <p>{packages.descript}</p>
+            <DescriptTxt>{packages.descript}</DescriptTxt>
             {localStorage.getItem("jwt") === null ? <h3>Login to buy</h3> : buyForm}
           </GridBox>
           <GridBox>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tincidunt purus. Aliquam iaculis maximus nunc, vitae blandit sapien tristique quis. In tristique euismod augue, et accumsan diam hendrerit sed. In pulvinar cursus sem quis rhoncus. </p>
+            <TxtLorem>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tincidunt purus. Aliquam iaculis maximus nunc, vitae blandit sapien tristique quis. In tristique euismod augue, et accumsan diam hendrerit sed. In pulvinar cursus sem quis rhoncus. </TxtLorem> 
+            <TxtLorem>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tincidunt purus. Aliquam iaculis maximus nunc, vitae blandit sapien tristique quis.</TxtLorem>
           </GridBox>
         </GridArea>
 
