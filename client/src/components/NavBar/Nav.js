@@ -9,6 +9,7 @@ import {
   NavList,
   NavLink,
   Bars,
+  ImgLogo,
 } from "../StylesPages/NavBarStyles";
 
 function Nav() {
@@ -33,7 +34,7 @@ function Nav() {
           <Bars onClick={() => setShowToggle(!showToggle)} />
 
           <NavLogo to="/">
-            <img
+            <ImgLogo 
               style={{ height: "70px" }}
               src="https://drive.google.com/uc?id=1C_LXEXZfAW3s7UwHXST5GZu8iEJX0zAf&authuser=0"
             />
@@ -66,7 +67,7 @@ function Nav() {
         </NavLogo>
         <NavMenu showToggle={showToggle}>
           <NavList>
-            <NavLink to="/">Package</NavLink>
+            <NavLink to="/">Packages</NavLink>
           </NavList>
           <NavList>
             <NavLink to="/signup">Sign Up</NavLink>

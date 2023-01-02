@@ -17,12 +17,15 @@ export const NavBar = styled.nav `
 
 export const NavLogo = styled(Link) `
     display: flex;
-    align-items: center;
     justify-content: center;
     padding-bottom: 5px;
     @media screen and (max-width: 768px) {
         padding-left: 20px;
      }
+`
+
+export const ImgLogo = styled.img `
+    height: 70px;
 `
 
 export const NavMenu = styled.ul `

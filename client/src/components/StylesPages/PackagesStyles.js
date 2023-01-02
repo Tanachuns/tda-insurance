@@ -20,7 +20,7 @@ export const GridArea = styled.div `
 `
 
 export const GridBox = styled.div `
-    padding: 20px;
+    padding: 20px; 
 `
 
 export const TxtLorem = styled.p `
