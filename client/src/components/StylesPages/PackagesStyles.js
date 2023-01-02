@@ -17,6 +17,9 @@ export const GridArea = styled.div `
     display: grid;
     grid-template-columns: 45% 55%;
     padding: 0px 30px 30px 30px;
+    @media screen and (max-width: 768px) {
+        display: flex;
+    }
 `
 
 export const GridBox = styled.div `
@@ -57,4 +60,7 @@ export const BuyBtn = styled.input `
 export const CarList = styled.select `
     border-radius: 8px;
     background-color: #ded5fe;
+`
+export const Option = styled.option `
+    background-color: #ded5fe; 
 `

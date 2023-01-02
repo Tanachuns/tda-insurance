@@ -50,10 +50,10 @@ const Index = (props) => {
       <h1>Car Insurance Packages</h1>
       <form onSubmit={handleClick} >
       <BtnSelect name="filter">
-        <option value={null}>All</option>
-        <option value={1}>First Class</option>
-        <option value={2}>Second Class</option>
-        <option value={3}>Third Class</option>
+        <option id="Option" value={null}>All</option>
+        <option id="Option" value={1}>First Class</option>
+        <option id="Option" value={2}>Second Class</option>
+        <option id="Option" value={3}>Third Class</option>
       </BtnSelect>
       <BtnFilter className="btnHover" type="submit">Choose</BtnFilter>
       </form>

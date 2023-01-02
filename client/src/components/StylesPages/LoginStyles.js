@@ -67,9 +67,10 @@ export const BtnFilter = styled.button`
 export const BtnSelect = styled.select`
     border: none;
     height: 35px;
-    width: 150px;
+    width: 250px;
     margin-bottom: 70px;
     border-radius: 20px;
-    background: linear-gradient(90deg, rgba(169,176,244,1) 12%, rgba(244,192,195,1) 82%);
+    // background: linear-gradient(90deg, rgba(169,176,244,1) 12%, rgba(244,192,195,1) 82%);
+    background-color: #ded5fe;
     color: black;
 `

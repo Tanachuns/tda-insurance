@@ -5,6 +5,7 @@ import {
   BoxCard, GridArea, GridBox, ImgPackage, H1, H2, BuyBtn, CarList, TxtLorem
 } from "../StylesPages/PackagesStyles";
 import { DescriptTxt } from "../StylesPages/CardPackageStyles";
+import "./Package.css"
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 const config = require("../../config.json");
@@ -79,7 +80,7 @@ function Packages() {
       <CarList name="cars" id="cars">
         {carlist}
       </CarList>
-      <BuyBtn type="submit" value="BUY" />
+      <BuyBtn className="buyBtn" type="submit" value="BUY" />
     </form>
   );
   console.log(localStorage.getItem("jwt"));

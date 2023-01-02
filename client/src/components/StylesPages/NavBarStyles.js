@@ -21,7 +21,7 @@ export const NavLogo = styled(Link) `
     padding-bottom: 5px;
     @media screen and (max-width: 768px) {
         padding-left: 20px;
-     }
+    }
 `
 
 export const ImgLogo = styled.img `
@@ -29,15 +29,14 @@ export const ImgLogo = styled.img `
 `
 
 export const NavMenu = styled.ul `
-     display: flex;
-     align-items: center;
-     list-style-type: none;
-     height: auto;
-     @media screen and (max-width: 768px) {
-        display: ${props => props.showToggle ? 'block' : 'none'};
-        padding-top: 50px;
-        // width: 100%;
-     }    
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: auto;
+    @media screen and (max-width: 768px) {
+    display: ${props => props.showToggle ? 'block' : 'none'};
+    padding-top: 50px;
+    }    
 `
 
 export const NavList = styled.li `

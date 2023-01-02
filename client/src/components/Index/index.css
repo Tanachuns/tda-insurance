@@ -36,3 +36,15 @@ ul li {
     font-weight: bold;
     box-shadow: rgb(15,14,159,0.5) 0px 2px 8px 0px;
 }
+
+#Option {
+    background-color: #ded5fe;
+}
+
+#Option::after {
+    background-color: #0f0e9f !important;
+}
+
+h1 {
+    color: #0f0e9f;
+}
