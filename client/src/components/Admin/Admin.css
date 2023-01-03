@@ -7,7 +7,12 @@
     cursor: pointer;
 }
 
-.dashboardBtn:hover, .dashboardBtn:checked {
+.dashboardBtn:hover, .dashboardBtn:active {
     background-color: #0f0e9f ;
+    color: #fff;
+}
+
+.active{
+    background-color: #0f0e9f;
     color: #fff;
 }

@@ -14,32 +14,50 @@ const Admin = () => {
   if (localStorage.getItem("jwt") !== null) {
     const decoded = jwt_decode(localStorage.getItem("jwt"));
     if (decoded.is_admin) {
+      const header = (
+        <header>
+          <h1>Admin {decoded.username}</h1>
+          <button
+            className={
+              page.type.name === "UserDetails"
+                ? "dashboardBtn active"
+                : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<UserDetails />);
+            }}
+          >
+            Users Detail
+          </button>
+          <button
+            className={
+              page.type.name === "CarsDetails"
+                ? "dashboardBtn active"
+                : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<CarsDetails />);
+            }}
+          >
+            Cars Detail
+          </button>
+          <button
+            className={
+              page.type.name === "PackagesDetails"
+                ? "dashboardBtn active"
+                : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<PackagesDetails />);
+            }}
+          >
+            Packages Detail
+          </button>
+        </header>
+      );
       return (
         <div>
-          <header>
-            <h1>Admin {decoded.username}</h1>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<UserDetails />);
-              }}
-            >
-              Users Detail
-            </button>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<CarsDetails />);
-              }}
-            >
-              Cars Detail
-            </button>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<PackagesDetails />);
-              }}
-            >
-              Packages Detail
-            </button>
-          </header>
+          {header}
           <main>{page}</main>
         </div>
       );
