@@ -14,8 +14,4 @@ export const DashboardBtn = styled.button`
   text-decoration: none;
   padding: 0 1rem;
   cursor: pointer;
-  &.active {
-    color: #fff;
-    background-color: #0f0e9f;
-  }
 `;
