@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate,Link } from "react-router-dom";
 import { Container } from "../StylesPages/PagesLayout";
 import { 
   BoxCard, GridArea, GridBox, ImgPackage, H1, H2, BuyBtn, CarList, TxtLorem
 } from "../StylesPages/PackagesStyles";
+
 import { DescriptTxt } from "../StylesPages/CardPackageStyles";
 import "./Package.css"
 import axios from "axios";
@@ -14,6 +15,7 @@ function Packages() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [cars, setCars] = useState([]);
+  const [qr, setQr] = useState('');
   const { id } = useParams();
   const url = config.url;
   let cost = new Intl.NumberFormat().format(packages.cost);
@@ -56,12 +58,29 @@ function Packages() {
       })
       .then((res) => {
         console.log(res.data);
-        alert("Buy completed");
-        navigate("/");
+        // alert("Buy completed");
+        // navigate("/");
+      axios.post(url +"/qrgen/generate",{
+        amount: parseFloat(packages.cost)
+    })
+    .then(res =>{
+      console.log('good', res)
+      console.log(res);
+      setQr(res.data.Result)
+    })
+    .catch(err =>{
+      console.log('bad', err)
+    })
+        
       })
 
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+       alert("Not sure which one to choose ?")});
+
+    
   };
+  
 
   const carlist = cars
     .filter((item) => {
@@ -81,6 +100,7 @@ function Packages() {
         {carlist}
       </CarList>
       <BuyBtn className="buyBtn" type="submit" value="BUY" />
+      
     </form>
   );
   console.log(localStorage.getItem("jwt"));
@@ -102,7 +122,16 @@ function Packages() {
             <TxtLorem>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tincidunt purus. Aliquam iaculis maximus nunc, vitae blandit sapien tristique quis.</TxtLorem>
           </GridBox>
         </GridArea>
-
+        <div id="modal" style={{display: qr !== "" ? 'block' : 'none' }}> 
+        
+        <img id="logo-qr" src="https://pp.js.org/img/PromptPay-logo.jpg"/>
+        <H2> Prompt Pay accout : 081-5623390</H2>
+        <img id="imgqr" src={qr} />
+        <H2>name accout : TDA insurance</H2>
+        <H2>amount : {cost} Baht</H2>
+        <br></br>
+    <button onClick={()=>navigate("/")}>Done</button>
+  </div>
       </BoxCard>
     </Container>
   );

@@ -35,6 +35,7 @@ const verifyToken = (req, res, next) => {
 app.use("/auth", routes.auth);
 app.use("/cars", routes.cars);
 app.use("/packages", routes.packages);
+app.use("/qrgen", routes.qrgen);
 app.use("/users", verifyToken, routes.users);
 
 app.listen(3002, () => {
