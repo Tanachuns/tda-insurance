@@ -26,7 +26,11 @@ const Admin = () => {
             Users Detail
           </button>
           <button
-            className={"dashboardBtn active"}
+            className={
+              page.type.name === "CarsDetails"
+                ? "dashboardBtn active"
+                : "dashboardBtn"
+            }
             onClick={() => {
               handlePage(<CarsDetails />);
             }}
@@ -45,6 +49,7 @@ const Admin = () => {
           >
             Packages Detail
           </button>
+          <h2>{page.type.name}</h2>
         </header>
       );
       return (
