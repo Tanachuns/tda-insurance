@@ -7,6 +7,7 @@ import "./Admin.css";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
+  const [btn, setBtn] = useState("UserDetails");
   const handlePage = (p) => {
     setPage(p);
   };
@@ -14,32 +15,47 @@ const Admin = () => {
   if (localStorage.getItem("jwt") !== null) {
     const decoded = jwt_decode(localStorage.getItem("jwt"));
     if (decoded.is_admin) {
+      const header = (
+        <header>
+          <h1>Admin {decoded.username}</h1>
+          <button
+            className={
+              btn === "UserDetails" ? "dashboardBtn active" : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<UserDetails />);
+              setBtn("UserDetails");
+            }}
+          >
+            Users Detail
+          </button>
+          <button
+            className={
+              btn === "CarsDetails" ? "dashboardBtn active" : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<CarsDetails />);
+              setBtn("CarsDetails");
+            }}
+          >
+            Cars Detail
+          </button>
+          <button
+            className={
+              btn === "PackagesDetails" ? "dashboardBtn active" : "dashboardBtn"
+            }
+            onClick={() => {
+              handlePage(<PackagesDetails />);
+              setBtn("PackagesDetails");
+            }}
+          >
+            Packages Detail
+          </button>
+        </header>
+      );
       return (
         <div>
-          <header>
-            <h1>Admin {decoded.username}</h1>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<UserDetails />);
-              }}
-            >
-              Users Detail
-            </button>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<CarsDetails />);
-              }}
-            >
-              Cars Detail
-            </button>
-            <button className="dashboardBtn"
-              onClick={() => {
-                handlePage(<PackagesDetails />);
-              }}
-            >
-              Packages Detail
-            </button>
-          </header>
+          {header}
           <main>{page}</main>
         </div>
       );
