@@ -10,6 +10,7 @@ import Admin from "./components/Admin/Admin";
 import SignUp from "./components/SignUp/SignUp";
 import Packages from "./components/Packages/Packages";
 import Profile from "./components/Profile/Profile";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

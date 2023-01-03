@@ -3,10 +3,7 @@ import CarsDetails from "./CarsDetails";
 import { useState } from "react";
 import PackagesDetails from "./PackagesDetails";
 import jwt_decode from "jwt-decode";
-import { InputBtn } from "../StylesPages/LoginStyles";
-import { Navigate } from "react-router-dom";
-
-//
+import "./Admin.css";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
@@ -21,35 +18,27 @@ const Admin = () => {
         <div>
           <header>
             <h1>Admin {decoded.username}</h1>
-            <button
+            <button className="dashboardBtn"
               onClick={() => {
                 handlePage(<UserDetails />);
               }}
             >
               Users Detail
             </button>
-            <button
+            <button className="dashboardBtn"
               onClick={() => {
                 handlePage(<CarsDetails />);
               }}
             >
               Cars Detail
             </button>
-            <button
+            <button className="dashboardBtn"
               onClick={() => {
                 handlePage(<PackagesDetails />);
               }}
             >
               Packages Detail
             </button>
-
-            {/* <button
-              onClick={() => {
-                handlePage(<Test />);
-              }}
-            >
-              Test
-            </button> */}
           </header>
           <main>{page}</main>
         </div>

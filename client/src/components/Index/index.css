@@ -1,9 +1,9 @@
-
 .slider {
     border-radius: 30px;
     background-color: #0f0e9f;
     color: aliceblue;
     width: 100%;
+    padding-bottom: 25px;
 }
 ul li {
     text-align: left;
@@ -13,7 +13,7 @@ ul li {
     opacity: 0;
 }
 .head-of-slider {
-    margin: 35px 0px;
+    padding: 45px 0;
     color: #0f0e9f;
 }
 .carousel .carousel-status {
@@ -27,4 +27,24 @@ ul li {
 }
 .thirdclass span {
     color: #b15116;
+}
+
+.btnHover:hover {
+    color: #0f0e9f;
+    background-color: #fff;
+    border: 2px solid #0f0e9f;
+    font-weight: bold;
+    box-shadow: rgb(15,14,159,0.5) 0px 2px 8px 0px;
+}
+
+#Option {
+    background-color: #ded5fe;
+}
+
+#Option::after {
+    background-color: #0f0e9f !important;
+}
+
+h1 {
+    color: #0f0e9f;
 }

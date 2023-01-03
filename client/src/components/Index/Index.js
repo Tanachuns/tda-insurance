@@ -5,8 +5,12 @@ import CardPackage from "./CardPackage/CardPackage.js";
 import { Flexarea } from "../StylesPages/CardPackageStyles";
 import { Container } from "../StylesPages/PagesLayout";
 import { Carousel } from "react-responsive-carousel";
-import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
+import { BtnFilter, BtnSelect } from "../StylesPages/LoginStyles.js";
+import styles from "react-responsive-carousel/lib/styles/carousel.min.css"; // Npm pack for Carousel slide
+
 import "./index.css";
+
+
 const config = require("../../config.json");
 
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -36,7 +40,7 @@ const Index = (props) => {
           filterList.push(item)
         }
       })
-      setFilterPack(filterList)
+      setFilterPack(filterList) 
        }
   }
 
@@ -45,17 +49,17 @@ const Index = (props) => {
     <Container>
       <h1>Car Insurance Packages</h1>
       <form onSubmit={handleClick} >
-      <select name="filter">
-        <option value={null}>All</option>
-      <option value={1}>First Class</option>
-      <option value={2}>Second Class</option>
-      <option value={3}>Third Class</option>
-      </select>
-      <input type='submit' value='select'/>
-    </form>
+      <BtnSelect name="filter">
+        <option id="Option" value={null}>All</option>
+        <option id="Option" value={1}>First Class</option>
+        <option id="Option" value={2}>Second Class</option>
+        <option id="Option" value={3}>Third Class</option>
+      </BtnSelect>
+      <BtnFilter className="btnHover" type="submit">Choose</BtnFilter>
+      </form>
       <Flexarea>{filterPack}</Flexarea>
 
-      <h2 className="head-of-slider">Which one to choose ?</h2>
+      <h2 className="head-of-slider">Not sure which one to choose ?</h2>
       <Carousel
         className="slider"
         autoPlay={true}

@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
-import {
-  BackgroundImg2,
-  Header2,
-  BackdropBox2,
-  ContainInput,
-} from "../StylesPages/SignupStyles";
+import { ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
+import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
 import jwt_decode from "jwt-decode";

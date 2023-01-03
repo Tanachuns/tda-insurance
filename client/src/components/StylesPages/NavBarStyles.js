@@ -4,7 +4,6 @@ import { FaBars } from "react-icons/fa";
 
 export const NavBar = styled.nav `
     background: #0f0e9f;
-    // height: 85px;
     height: ${props => props.showToggle ? 'auto' : '85px'}
     width: 100%;
     display: flex;
@@ -17,24 +16,26 @@ export const NavBar = styled.nav `
 
 export const NavLogo = styled(Link) `
     display: flex;
-    align-items: center;
     justify-content: center;
     padding-bottom: 5px;
     @media screen and (max-width: 768px) {
         padding-left: 20px;
-     }
+    }
+`
+
+export const ImgLogo = styled.img `
+    height: 70px;
 `
 
 export const NavMenu = styled.ul `
-     display: flex;
-     align-items: center;
-     list-style-type: none;
-     height: auto;
-     @media screen and (max-width: 768px) {
-        display: ${props => props.showToggle ? 'block' : 'none'};
-        padding-top: 50px;
-        // width: 100%;
-     }    
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: auto;
+    @media screen and (max-width: 768px) {
+    display: ${props => props.showToggle ? 'block' : 'none'};
+    padding-top: 50px;
+    }    
 `
 
 export const NavList = styled.li `

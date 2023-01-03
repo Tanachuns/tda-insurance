@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CenterAdmin2 } from "../StylesPages/AdminStyles";
+import { CenterPage } from "../StylesPages/AdminStyles";
+import { Container } from "../StylesPages/PagesLayout";
 const config = require("../../config.json");
 
 const CarsDetails = () => {
@@ -163,61 +164,63 @@ const CarsDetails = () => {
   };
 
   return (
-    <CenterAdmin2>
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Owner ID</th>
-            <th>Plate Number</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Package ID</th>
-            <th>Type</th>
-            <th>edit</th>
-            <th>delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {carsElement}
-          <>
-            <form
-              method="POST"
-              id={"caradd"}
-              onSubmit={(e) => handleCreate(e)}
-            ></form>
+    <Container>
+      <CenterPage>
+        <table>
+          <thead>
             <tr>
-              <td></td>
-              <td>
-                <input type="text" form={"caradd"} name="user_id" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="plate_number" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="brand" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="model" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="year" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="insurance_id" />
-              </td>
-              <td>
-                <input type="text" form={"caradd"} name="type" />
-              </td>
-              <td>
-                <input type="submit" form={"caradd"} value="add" />
-              </td>
+              <th>id</th>
+              <th>Owner ID</th>
+              <th>Plate Number</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Year</th>
+              <th>Package ID</th>
+              <th>Type</th>
+              <th>edit</th>
+              <th>delete</th>
             </tr>
-          </>
-        </tbody>
-      </table>
-    </CenterAdmin2>
+          </thead>
+          <tbody>
+            {carsElement}
+            <>
+              <form
+                method="POST"
+                id={"caradd"}
+                onSubmit={(e) => handleCreate(e)}
+              ></form>
+              <tr>
+                <td></td>
+                <td>
+                  <input type="text" form={"caradd"} name="user_id" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="plate_number" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="brand" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="model" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="year" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="insurance_id" />
+                </td>
+                <td>
+                  <input type="text" form={"caradd"} name="type" />
+                </td>
+                <td>
+                  <input type="submit" form={"caradd"} value="add" />
+                </td>
+              </tr>
+            </>
+          </tbody>
+        </table>
+      </CenterPage>
+    </Container>  
   );
 };
 
