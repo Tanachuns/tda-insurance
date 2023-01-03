@@ -8,21 +8,20 @@ const UserCarList = (props) => {
   const url = config.url;
   const [cars, setCars] = useState([]);
 
-  const [carTypes, setCarType] = useState(config.carType)
+  const [carTypes, setCarType] = useState(config.carType);
   // const [carTypeList, setCarTypeList] =useState([])
 
-  
   useEffect(() => {
     axios.get(url + "/cars").then((res) => {
       setCars(res.data);
     });
   }, []);
 
-  const carList = carTypes.map(item =>{
-    return <option value={item}>{item}</option>
- })
+  const carList = carTypes.map((item) => {
+    return <option value={item}>{item}</option>;
+  });
 
-//  setCarTypeList(List)
+  //  setCarTypeList(List)
   const carsElement = cars
     .filter((item) => {
       return props.userId === item.user_id;
@@ -95,10 +94,7 @@ const UserCarList = (props) => {
               />
             </td>
             <td>
-              <select
-              form={"car" + car.id}
-              name="type"
-              defaultValue={car.type}>
+              <select form={"car" + car.id} name="type" defaultValue={car.type}>
                 {carList}
               </select>
               {/* <input
@@ -175,79 +171,75 @@ const UserCarList = (props) => {
   };
 
   return (
-    <Container>
-      <CenterPage>
-        <table>
-          <thead>
+    <CenterPage>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Owner ID</th>
+            <th>Plate Number</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Package ID</th>
+            <th>Type</th>
+            <th>edit</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {carsElement}
+          <>
+            <form
+              method="POST"
+              id={"caradd"}
+              onSubmit={(e) => handleCreate(e)}
+            ></form>
             <tr>
-              <th>id</th>
-              <th>Owner ID</th>
-              <th>Plate Number</th>
-              <th>Brand</th>
-              <th>Model</th>
-              <th>Year</th>
-              <th>Package ID</th>
-              <th>Type</th>
-              <th>edit</th>
-              <th>delete</th>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  form={"caradd"}
+                  name="user_id"
+                  value={props.userId}
+                  disabled
+                />
+              </td>
+              <td>
+                <input type="text" form={"caradd"} name="plate_number" />
+              </td>
+              <td>
+                <input type="text" form={"caradd"} name="brand" />
+              </td>
+              <td>
+                <input type="text" form={"caradd"} name="model" />
+              </td>
+              <td>
+                <input type="text" form={"caradd"} name="year" />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  form={"caradd"}
+                  name="insurance_id"
+                  disabled
+                />
+              </td>
+              <td>
+                <select form={"caradd"} name="type">
+                  {carList}
+                </select>
+                {/* <input type="text" form={"caradd"} name="type" /> */}
+              </td>
+              <td>
+                <input type="submit" form={"caradd"} value="add" />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {carsElement}
-            <>
-              <form
-                method="POST"
-                id={"caradd"}
-                onSubmit={(e) => handleCreate(e)}
-              ></form>
-              <tr>
-                <td></td>
-                <td>
-                  <input
-                    type="text"
-                    form={"caradd"}
-                    name="user_id"
-                    value={props.userId}
-                    disabled
-                  />
-                </td>
-                <td>
-                  <input type="text" form={"caradd"} name="plate_number" />
-                </td>
-                <td>
-                  <input type="text" form={"caradd"} name="brand" />
-                </td>
-                <td>
-                  <input type="text" form={"caradd"} name="model" />
-                </td>
-                <td>
-                  <input type="text" form={"caradd"} name="year" />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    form={"caradd"}
-                    name="insurance_id"
-                    disabled
-                  />
-                </td>
-                <td>
-                <select
-              form={"caradd"}
-              name="type">
-                {carList}
-              </select>
-                  {/* <input type="text" form={"caradd"} name="type" /> */}
-                </td>
-                <td>
-                  <input type="submit" form={"caradd"} value="add" />
-                </td>
-              </tr>
-            </>
-          </tbody>
-        </table>
-      </CenterPage>
-    </Container>
+          </>
+        </tbody>
+      </table>
+    </CenterPage>
   );
 };
 
