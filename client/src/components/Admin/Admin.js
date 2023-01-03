@@ -7,6 +7,7 @@ import "./Admin.css";
 
 const Admin = () => {
   const [page, setPage] = useState(<UserDetails />);
+  const [btn, setBtn] = useState("UserDetails");
   const handlePage = (p) => {
     setPage(p);
   };
@@ -18,38 +19,38 @@ const Admin = () => {
         <header>
           <h1>Admin {decoded.username}</h1>
           <button
-            className={"dashboardBtn"}
+            className={
+              btn === "UserDetails" ? "dashboardBtn active" : "dashboardBtn"
+            }
             onClick={() => {
               handlePage(<UserDetails />);
+              setBtn("UserDetails");
             }}
           >
             Users Detail
           </button>
           <button
             className={
-              page.type.name === "CarsDetails"
-                ? "dashboardBtn active"
-                : "dashboardBtn"
+              btn === "CarsDetails" ? "dashboardBtn active" : "dashboardBtn"
             }
             onClick={() => {
               handlePage(<CarsDetails />);
+              setBtn("CarsDetails");
             }}
           >
             Cars Detail
           </button>
           <button
             className={
-              page.type.name === "PackagesDetails"
-                ? "dashboardBtn active"
-                : "dashboardBtn"
+              btn === "PackagesDetails" ? "dashboardBtn active" : "dashboardBtn"
             }
             onClick={() => {
               handlePage(<PackagesDetails />);
+              setBtn("PackagesDetails");
             }}
           >
             Packages Detail
           </button>
-          <h2>{page.type.name}</h2>
         </header>
       );
       return (
