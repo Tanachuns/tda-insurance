@@ -5,11 +5,26 @@ const config = require("../../config.json");
 const UserCarList = (props) => {
   const url = config.url;
   const [cars, setCars] = useState([]);
+  // const carList =[] 
+  const [carTypes, setCarType] = useState(['car','super_car','truck','van','bus'])
+  // const [carTypeList, setCarTypeList] =useState([])
+  
+console.log(carTypes);
+  // for(let i =0; i<carTypes.length;i++){
+  //   carTypeList.push(<option value={carTypes[i]}>{carTypes[i]}</option>)
+  // }
+  
   useEffect(() => {
     axios.get(url + "/cars").then((res) => {
       setCars(res.data);
     });
   }, []);
+
+  const carList = carTypes.map(item =>{
+    return <option value={item}>{item}</option>
+ })
+
+//  setCarTypeList(List)
   const carsElement = cars
     .filter((item) => {
       return props.userId === item.user_id;
@@ -82,12 +97,18 @@ const UserCarList = (props) => {
               />
             </td>
             <td>
-              <input
+              <select
+              // form={"car" + car.id}
+              name="type"
+              defaultValue={car.type}>
+                {carList}
+              </select>
+              {/* <input
                 type="text"
                 form={"car" + car.id}
                 name="type"
                 defaultValue={car.type}
-              />
+              /> */}
             </td>
             <td>
               <input
