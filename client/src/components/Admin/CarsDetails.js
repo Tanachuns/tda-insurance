@@ -133,6 +133,7 @@ const CarsDetails = () => {
   };
 
   const handleDelete = (e) => {
+    e.preventDefault();
     axios.delete(url + "/cars/" + e.target.id).then((res) => {
       console.log(res);
       alert("Car deleted");

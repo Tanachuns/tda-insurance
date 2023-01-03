@@ -7,14 +7,10 @@ const config = require("../../config.json");
 const UserCarList = (props) => {
   const url = config.url;
   const [cars, setCars] = useState([]);
-  // const carList =[] 
-  const [carTypes, setCarType] = useState(['car','super_car','truck','van','bus'])
+
+  const [carTypes, setCarType] = useState(config.carType)
   // const [carTypeList, setCarTypeList] =useState([])
-  
-console.log(carTypes);
-  // for(let i =0; i<carTypes.length;i++){
-  //   carTypeList.push(<option value={carTypes[i]}>{carTypes[i]}</option>)
-  // }
+
   
   useEffect(() => {
     axios.get(url + "/cars").then((res) => {
@@ -100,7 +96,7 @@ console.log(carTypes);
             </td>
             <td>
               <select
-              // form={"car" + car.id}
+              form={"car" + car.id}
               name="type"
               defaultValue={car.type}>
                 {carList}
@@ -236,7 +232,12 @@ console.log(carTypes);
                   />
                 </td>
                 <td>
-                  <input type="text" form={"caradd"} name="type" />
+                <select
+              form={"caradd"}
+              name="type">
+                {carList}
+              </select>
+                  {/* <input type="text" form={"caradd"} name="type" /> */}
                 </td>
                 <td>
                   <input type="submit" form={"caradd"} value="add" />

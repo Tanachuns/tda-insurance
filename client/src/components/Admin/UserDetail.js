@@ -161,8 +161,11 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
+    console.log(data);
     axios
-      .post(url + "/users/", data)
+      .post(url + "/users/", data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+      })
       .then((res) => {
         console.log(res);
         alert("User Created");
@@ -223,7 +226,7 @@ const UserDetails = () => {
                   <input type="text" form="useradd" name="password" />
                 </td>
                 <td>
-                  <input type="submit" form="useradd" name="edit" value="add" />
+                  <input type="submit" form="useradd" name="add" value="add" />
                 </td>
                 <td></td>
               </tr>

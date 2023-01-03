@@ -1,3 +1,4 @@
 {
-    "url":"http://localhost:3002"
+    "url":"http://localhost:3002",
+    "carType" : ["car","super_car","truck","van","bus"]
 }
