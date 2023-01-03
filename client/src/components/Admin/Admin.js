@@ -18,11 +18,7 @@ const Admin = () => {
         <header>
           <h1>Admin {decoded.username}</h1>
           <button
-            className={
-              page.type.name === "UserDetails"
-                ? "dashboardBtn active"
-                : "dashboardBtn"
-            }
+            className={"dashboardBtn"}
             onClick={() => {
               handlePage(<UserDetails />);
             }}
@@ -30,11 +26,7 @@ const Admin = () => {
             Users Detail
           </button>
           <button
-            className={
-              page.type.name === "CarsDetails"
-                ? "dashboardBtn active"
-                : "dashboardBtn"
-            }
+            className={"dashboardBtn active"}
             onClick={() => {
               handlePage(<CarsDetails />);
             }}
