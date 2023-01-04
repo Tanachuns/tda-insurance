@@ -123,7 +123,6 @@ const CarsDetails = () => {
     axios
       .put(url + "/cars/" + data.id, data)
       .then((res) => {
-        console.log(res);
         alert("Car edited");
         window.location.reload(false);
       })
@@ -135,7 +134,6 @@ const CarsDetails = () => {
   const handleDelete = (e) => {
     e.preventDefault();
     axios.delete(url + "/cars/" + e.target.id).then((res) => {
-      console.log(res);
       alert("Car deleted");
       window.location.reload(false);
     });
@@ -155,7 +153,6 @@ const CarsDetails = () => {
     axios
       .post(url + "/cars/", data)
       .then((res) => {
-        console.log(res);
         alert("Car Created");
         window.location.reload(false);
       })

@@ -2,7 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserCarList from "./UserCarList";
 import jwt_decode from "jwt-decode";
-import { HeaderProfile, EditBtn, Border, ContainerFlex, InputBox, Label, InputBtnProfile } from "../StylesPages/ProfileStyles";
+import {
+  HeaderProfile,
+  EditBtn,
+  Border,
+  ContainerFlex,
+  InputBox,
+  Label,
+  InputBtnProfile,
+} from "../StylesPages/ProfileStyles";
 import { InputBtn } from "../StylesPages/LoginStyles";
 const config = require("../../config.json");
 
@@ -10,14 +18,12 @@ const Profile = () => {
   const url = config.url;
   const [profile, setProfile] = useState({});
   var decoded = jwt_decode(localStorage.getItem("jwt"));
-  console.log(decoded);
   useEffect(() => {
     axios
       .get(url + "/users/" + decoded.id, {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res.data);
         setProfile(res.data);
       });
   }, []);
@@ -39,7 +45,6 @@ const Profile = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res);
         alert("User edited");
         window.location.reload(false);
       });
@@ -68,27 +73,47 @@ const Profile = () => {
           <ContainerFlex>
             <InputBox>
               <Label>Firstname</Label>
-              <InputBtnProfile type="text" name="firstname" defaultValue={profile.firstname} />
+              <InputBtnProfile
+                type="text"
+                name="firstname"
+                defaultValue={profile.firstname}
+              />
             </InputBox>
 
             <InputBox>
               <Label>Lastname</Label>
-              <InputBtnProfile type="text" name="lastname" defaultValue={profile.lastname} />
+              <InputBtnProfile
+                type="text"
+                name="lastname"
+                defaultValue={profile.lastname}
+              />
             </InputBox>
 
             <InputBox>
               <Label>Address</Label>
-              <InputBtnProfile type="text" name="address" defaultValue={profile.address} />
+              <InputBtnProfile
+                type="text"
+                name="address"
+                defaultValue={profile.address}
+              />
             </InputBox>
 
             <InputBox>
               <Label>Tel</Label>
-              <InputBtnProfile type="text" name="tel" defaultValue={profile.tel} />
+              <InputBtnProfile
+                type="text"
+                name="tel"
+                defaultValue={profile.tel}
+              />
             </InputBox>
 
             <InputBox>
               <Label>Username</Label>
-              <InputBtnProfile type="text" name="username" defaultValue={profile.username} />
+              <InputBtnProfile
+                type="text"
+                name="username"
+                defaultValue={profile.username}
+              />
             </InputBox>
 
             <InputBox>
@@ -99,7 +124,6 @@ const Profile = () => {
                 defaultValue={profile.password}
               />
             </InputBox>
-            
           </ContainerFlex>
           <br />
           <EditBtn type="submit">edit</EditBtn>

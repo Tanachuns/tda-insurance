@@ -138,7 +138,6 @@ const UserCarList = (props) => {
       type: e.target.elements.type.value,
     };
     axios.put(url + "/cars/" + data.id, data).then((res) => {
-      console.log(res);
       alert("Car edited");
       window.location.reload(false);
     });
@@ -146,7 +145,6 @@ const UserCarList = (props) => {
 
   const handleDelete = (e) => {
     axios.delete(url + "/cars/" + e.target.id).then((res) => {
-      console.log(res);
       alert("Car deleted");
       window.location.reload(false);
     });
@@ -164,7 +162,6 @@ const UserCarList = (props) => {
       type: e.target.elements.type.value,
     };
     axios.post(url + "/cars/", data).then((res) => {
-      console.log(res);
       alert("Car Created");
       window.location.reload(false);
     });

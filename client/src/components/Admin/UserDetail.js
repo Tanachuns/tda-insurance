@@ -13,7 +13,6 @@ const UserDetails = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res);
         setUsers(res.data);
       });
   }, []);
@@ -130,7 +129,6 @@ const UserDetails = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res);
         alert("User edited");
         window.location.reload(false);
       })
@@ -145,7 +143,6 @@ const UserDetails = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res);
         alert("User deleted");
         window.location.reload(false);
       });
@@ -161,13 +158,11 @@ const UserDetails = () => {
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
-    console.log(data);
     axios
       .post(url + "/users/", data, {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {
-        console.log(res);
         alert("User Created");
         window.location.reload(true);
       })

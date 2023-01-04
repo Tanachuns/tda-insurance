@@ -104,14 +104,12 @@ const PackagesDetails = () => {
       type: e.target.elements.type.value.split(","),
     };
     axios.put(url + "/packages/" + data.id, data).then((res) => {
-      console.log(res);
       alert("Packages edited");
       window.location.reload(false);
     });
   };
   const handleDelete = (e) => {
     axios.delete(url + "/packages/" + e.target.id).then((res) => {
-      console.log(res);
       alert("Car deleted");
       window.location.reload(false);
     });
@@ -129,13 +127,10 @@ const PackagesDetails = () => {
     axios
       .post(url + "/packages", data)
       .then((res) => {
-        console.log(res);
         alert("Package Created");
         window.location.reload(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   return (
     <CenterPage>

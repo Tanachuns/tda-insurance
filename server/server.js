@@ -23,12 +23,10 @@ const verifyToken = (req, res, next) => {
     const bearerToken = bearer[1];
     req.token = bearerToken;
   }
-  console.log(req.token);
   jwt.verify(req.token, "test_jwt", (err, decodedUser) => {
     if (err || !decodedUser)
       return res.status(401).json({ error: "Unauthorized Request" });
     req.user = decodedUser;
-    console.log(decodedUser);
     next();
   });
 };

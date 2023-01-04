@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ContainerFlex, InputBox, Label } from "../StylesPages/ProfileStyles";
-import { BackgroundImg2, Header2, BackdropBox2, ContainInput } from "../StylesPages/SignupStyles";
+import {
+  BackgroundImg2,
+  Header2,
+  BackdropBox2,
+  ContainInput,
+} from "../StylesPages/SignupStyles";
 import { InputBtn, LoginBtn } from "../StylesPages/LoginStyles";
 
 import jwt_decode from "jwt-decode";
@@ -35,7 +40,6 @@ const SignUp = (props) => {
         if (err.response.status === 409) {
           alert("username already exists");
         } else {
-          console.log(err);
         }
       });
   };
