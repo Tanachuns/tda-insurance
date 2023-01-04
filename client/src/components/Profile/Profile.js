@@ -36,7 +36,6 @@ const Profile = () => {
       lastname: e.target.elements.lastname.value,
       address: e.target.elements.address.value,
       tel: e.target.elements.tel.value,
-      is_admin: e.target.elements.is_admin.checked,
       username: e.target.elements.username.value,
       password: e.target.elements.password.value,
     };
